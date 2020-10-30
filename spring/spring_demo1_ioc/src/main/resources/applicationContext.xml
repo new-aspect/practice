@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+">
+
+    <context:component-scan base-package="com.nzhao"/>
+
+<!--    <context:component-scan base-package="com.itheima">-->
+<!--        &lt;!&ndash;<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>&ndash;&gt;-->
+<!--    </context:component-scan>-->
+
+<!--    <context:property-placeholder location="classpath*:jdbc.properties"/>-->
+
+<!--    &lt;!&ndash;事物的注解驱动&ndash;&gt;-->
+<!--    <tx:annotation-driven transaction-manager="txManager"/>-->
+
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"/>-->
+<!--        <property name="url" value="${jdbc.url}"/>-->
+<!--        <property name="username" value="${jdbc.username}"/>-->
+<!--        <property name="password" value="${jdbc.password}"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--        <property name="typeAliasesPackage" value="com.itheima.domain"/>-->
+<!--        <property name="plugins">-->
+<!--            <array>-->
+<!--                <bean class="com.github.pagehelper.PageInterceptor">-->
+<!--                    <property name="properties">-->
+<!--                        <props>-->
+<!--                            <prop key="HelpDialect">mysql</prop>-->
+<!--                            <prop key="reasonable">true</prop>-->
+<!--                        </props>-->
+<!--                    </property>-->
+<!--                </bean>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="com.itheima.dao"/>-->
+<!--    </bean>-->
+
+    <!--<bean id="userService" class="com.itheima.service.impl.UserServiceImpl">-->
+    <!--<property name="userDao" ref="userDao"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="userController" class="com.itheima.controller.UserController">-->
+    <!--<property name="userService" ref="userService"/>-->
+    <!--</bean>-->
+
+<!--    &lt;!&ndash; 添加事物 &ndash;&gt;-->
+<!--    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
+
+</beans>
