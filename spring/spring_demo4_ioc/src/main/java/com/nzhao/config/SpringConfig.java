@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 
-@Configuration//声明
+@Configuration//声明Spring
 @PropertySource(value = "classpath:jdbc.properties")//@PropertySource能加载properties文件
 public class SpringConfig {
 
