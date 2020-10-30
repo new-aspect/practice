@@ -1,18 +1,19 @@
 package com.nzhao;
 
+import com.nzhao.config.SpringConfig;
 import com.nzhao.pojo.User;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 import java.util.List;
 
 public class JdbcTemplateTest {
     public static void main(String[] args) {
         //通过Spring获取JdbcTemplate
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
         JdbcTemplate jdbcTemplate = applicationContext.getBean(JdbcTemplate.class);
 
         //使用JdbcTemplate对象操作数据库
