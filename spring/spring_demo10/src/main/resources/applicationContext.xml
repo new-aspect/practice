@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--       http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--       http://www.springframework.org/schema/context-->
+<!--       http://www.springframework.org/schema/context/spring-context.xsd">-->
+<!--    &lt;!&ndash;  创造dataSource数据源  Start  &ndash;&gt;-->
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+<!--    -->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"/>-->
+<!--        <property name="url" value="${jdbc.url}"/>-->
+<!--        <property name="username" value="${jdbc.username}"/>-->
+<!--        <property name="password" value="${jdbc.password}"/>-->
+<!--     </bean>-->
+<!--    &lt;!&ndash;  创造dataSource数据源  End  &ndash;&gt;-->
+<!--    -->
+<!--    -->
+<!--    &lt;!&ndash;  Spring整合Mybatis的核心两个步骤   Start  &ndash;&gt;-->
+<!--    &lt;!&ndash;  将sqlSessionFactory配置到Spring容器中，注意需要配置dataSource属性  &ndash;&gt;-->
+<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--        &lt;!&ndash;    为了方便管理pojo的别名，配置别名类型的包扫描，也可以在mapper文件中配置    &ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="typeAliasesPackage" value="com.nzhao.pojo"/>&ndash;&gt;-->
+<!--    </bean>0202-->
+<!--    &lt;!&ndash;  加载mybatis中mapper配置文件的扫描，将mapper加载到Spring作为bean管理  &ndash;&gt;-->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="com.nzhao.dao"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;  Spring整合Mybatis的核心两个步骤   End  &ndash;&gt;-->
+
+<!--    &lt;!&ndash;  将Service的bean交由Spring管理，这是xml方式，也可以通过注解方式  &ndash;&gt;-->
+<!--    <bean id="accountService" class="com.nzhao.service.impl.AccountServiceImpl">-->
+<!--        &lt;!&ndash;   输出的AccountDao是交由Mybatis动态生成     &ndash;&gt;-->
+<!--        <property name="accountMapper" value="accountMapper"/>-->
+<!--    </bean>-->
+
+<!--</beans>-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载perperties配置文件的信息-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--加载druid资源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置service作为spring的bean,注入dao-->
+    <bean id="accountService" class="com.nzhao.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+
+    <!--spring整合mybatis后控制的创建连接用的对象-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.nzhao.pojo"/>
+    </bean>
+
+    <!--加载mybatis映射配置的扫描，将其作为spring的bean进行管理-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.nzhao.dao"/>
+    </bean>
+
+
+
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis的DTD约束-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    Mybatis通过命名空间namespace绑定绑定dao接口，也就是Mapper接口，得知接口的全限名，进而处理dao的增删改查操作
+-->
+<mapper namespace="com.nzhao.dao.AccountDao">
+    <!--  id是接口的方法名，返回类型account是Spring整合Mybatis配置通过包扫描生成别名account，
+          如果没有配置包扫描生成别名，返回类型需要写原来的名字全路径，即resultType="com.nzhao.pojo.Account"  -->
+    <select id="findAll" resultType="account">
+        SELECT * FROM account
+    </select>
+
+
+</mapper>
