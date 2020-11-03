@@ -13,31 +13,32 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
-    <!--  创造dataSource数据源  Start  -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
 
+    <!--  创建DataSource   Start  -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driver}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
-    <!--  创造dataSource数据源  End  -->
+    <!--  创建DataSource   End  -->
 
-    <!--  Spring整合Mybatis，核心的两个步骤     Start  -->
+    <!--  Spring整合Mybatis核心配置两项   Start  -->
+    <!--  SqlSessionBean交由Spring管理  -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.nzhao.pojo"/>
-        <property name="mapperLocations" value="classpath:mapper"/>
     </bean>
-
+    <!--  配置扫面的包文件  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.nzhao.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
-    <!--  Spring整合Mybatis，核心的两个步骤     End  -->
+    <!--  Spring整合Mybatis核心配置两项   End  -->
+
 
     <bean id="accountService" class="com.nzhao.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
     </bean>
+
 </beans>
