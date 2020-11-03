@@ -13,4 +13,9 @@ public interface AccountService {
      * 根据id名称删除一条数据
      */
     void deleteById(Integer id);
+
+    /**
+     * 修改一条数据
+     */
+    void update(Account account);
 }

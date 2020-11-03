@@ -30,4 +30,9 @@ public class AccountServiceTest {
         accountService.deleteById(5);
     }
 
+    @Test
+    public void UpdateTest(){
+        accountService.update(new Account(5,"伊利亚",40.0));
+    }
+
 }

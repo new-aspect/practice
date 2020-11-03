@@ -28,4 +28,9 @@ public class AccountServiceImpl implements AccountService {
     public void deleteById(Integer id) {
         accountDao.deleteById(id);
     }
+
+    @Override
+    public void update(Account account) {
+        accountDao.update(account);
+    }
 }

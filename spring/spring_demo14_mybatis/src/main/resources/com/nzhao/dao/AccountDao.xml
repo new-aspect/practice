@@ -15,4 +15,8 @@
     <delete id="deleteById" parameterType="int">
         DELETE FROM account WHERE id = #{id}
     </delete>
+
+    <update id="update" parameterType="account">
+        UPDATE account SET name= #{name},money=#{money} WHERE id=#{id};
+    </update>
 </mapper>
