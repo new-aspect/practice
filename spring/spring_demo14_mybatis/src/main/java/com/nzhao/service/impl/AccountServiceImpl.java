@@ -18,4 +18,9 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> findAll() {
         return accountDao.findAll();
     }
+
+    @Override
+    public void add(Account account) {
+        accountDao.add(account);
+    }
 }

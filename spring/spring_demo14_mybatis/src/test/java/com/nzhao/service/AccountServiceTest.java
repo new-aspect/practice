@@ -1,5 +1,6 @@
 package com.nzhao.service;
 
+import com.nzhao.pojo.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,13 @@ public class AccountServiceTest {
 
 
     @Test
-    public void test(){
+    public void findAllTest(){
         System.out.println(accountService.findAll());
+    }
+
+    @Test
+    public void AddTest(){
+        accountService. add(new Account(5,"卫宫",400.0));
     }
 
 }
