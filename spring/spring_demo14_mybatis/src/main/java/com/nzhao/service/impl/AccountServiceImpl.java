@@ -23,4 +23,9 @@ public class AccountServiceImpl implements AccountService {
     public void add(Account account) {
         accountDao.add(account);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        accountDao.deleteById(id);
+    }
 }

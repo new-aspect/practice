@@ -25,4 +25,9 @@ public class AccountServiceTest {
         accountService. add(new Account(5,"卫宫",400.0));
     }
 
+    @Test
+    public void DeleteByIdTest(){
+        accountService.deleteById(5);
+    }
+
 }

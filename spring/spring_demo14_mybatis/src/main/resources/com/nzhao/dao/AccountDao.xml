@@ -11,4 +11,8 @@
     <insert id="add" parameterType="account">
         INSERT INTO account(id,name,money) VALUE (#{id},#{name},#{money})
     </insert>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM account WHERE id = #{id}
+    </delete>
 </mapper>
