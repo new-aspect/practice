@@ -26,10 +26,10 @@ public class HelloServlet extends HttpServlet {
 
         //3. 视图转发或者重定向
         //方式一：转发
-        req.getRequestDispatcher("/WEB-INF/test.jsp").forward(req,resp);
+        //req.getRequestDispatcher("/WEB-INF/test.jsp").forward(req,resp);
 
-        //方式二：重定向
-        //resp.sendRedirect("/WEB-INF/test.jsp");
+        //方式二：重定向,暂时没有想到怎们用重定向传参，现在倒是可以使用转发的方式传参
+        resp.sendRedirect("test2.jsp");
 
     }
 
