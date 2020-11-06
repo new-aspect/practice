@@ -14,5 +14,23 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
+        <!--    导入jsp的包    -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <!--    导入jstl表达式的依赖    -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!--    standard标签库    -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
     </dependencies>
 </project>
