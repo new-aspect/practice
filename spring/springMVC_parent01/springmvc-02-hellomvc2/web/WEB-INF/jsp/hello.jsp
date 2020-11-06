@@ -12,5 +12,8 @@
 </head>
 <body>
 ${msg}
+${sessionScope}
+
+<% out.print(3/1); %>
 </body>
 </html>
