@@ -14,9 +14,9 @@
 <%--JSP页面
 jsp:include  拼接页面，本质还是三个
 --%>
-
 <jsp:include page="/common/header.jsp"/>
 <h1>网页主体2</h1>
 <jsp:include page="/common/footer.jsp"/>
+
 </body>
 </html>
