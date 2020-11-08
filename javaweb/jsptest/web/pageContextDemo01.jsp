@@ -18,6 +18,7 @@
 --%>
 <%
     //从pageContext取出，我们通过寻找的方式来
+    // 从底层到高层(作用域)  page --> request --> session --> application
     String name1 = (String) pageContext.findAttribute("name1");
     String name2 = (String) pageContext.findAttribute("name2");
     String name3 = (String) pageContext.findAttribute("name3");
