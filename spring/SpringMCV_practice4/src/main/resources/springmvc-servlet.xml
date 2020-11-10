@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  配置处理器映射器，配置处理器适配器，讲原理才用到，实际开发可以自动配置  -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!--  视图解析器ViewResolver, 这个东西不能省略  -->
+    <!--  现在使用Spring的视图解析器，未来我们可以换成Thymeleaf, Freemarker 等模板引擎  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--    注意最后一个/一定要写，不然路径拼写错误    -->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!--  我们配置的BeanNameUrlHandlerMapping需要一个Bean，
+          有些low，实际不用，但适合我们理解SpringMVC的原理  -->
+    <bean id="/hello" class="com.nzhao.controller.HelloController"/>
+</beans>
