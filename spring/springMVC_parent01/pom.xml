@@ -15,6 +15,7 @@
         <module>springmvc-03-annotation</module>
         <module>springmvc-04-controller</module>
         <module>springmvc-05-restful</module>
+        <module>springmvc-05-form</module>
     </modules>
 
     <!--  SpringMVC的依赖  -->
