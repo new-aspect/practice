@@ -26,9 +26,9 @@
 
     <!--  视图解析器ViewResolver, 这个东西不能省略  -->
     <!--  现在使用Spring的视图解析器，未来我们可以换成Thymeleaf, Freemarker 等模板引擎  -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--    注意最后一个/一定要写，不然路径拼写错误    -->
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        &lt;!&ndash;    注意最后一个/一定要写，不然路径拼写错误    &ndash;&gt;-->
+<!--        <property name="prefix" value="/WEB-INF/jsp/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
 </beans>
