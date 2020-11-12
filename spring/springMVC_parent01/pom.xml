@@ -20,6 +20,7 @@
         <module>springmvc-05-filter</module>
         <module>springmvc-05-form2</module>
         <module>springmvc-05-filter2</module>
+        <module>springmvc-05-json</module>
     </modules>
 
     <!--  SpringMVC的依赖  -->
