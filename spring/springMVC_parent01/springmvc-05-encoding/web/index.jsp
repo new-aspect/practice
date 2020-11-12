@@ -13,8 +13,14 @@
   <body>
   $END$写个一表单
 
+
   <form action="/form" method="get">
-    name = <input type="text" name="name">
+    get 方法 name = <input type="text" name="name">
+    <input type="submit">
+  </form>
+
+  <form action="/form" method="post">
+    post 方法 name = <input type="text" name="name">
     <input type="submit">
   </form>
 
