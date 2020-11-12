@@ -18,6 +18,7 @@
         <module>springmvc-05-form</module>
         <module>springmvc-05-encoding</module>
         <module>springmvc-05-filter</module>
+        <module>springmvc-05-form2</module>
     </modules>
 
     <!--  SpringMVC的依赖  -->
