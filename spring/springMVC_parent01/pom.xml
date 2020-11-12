@@ -16,6 +16,7 @@
         <module>springmvc-04-controller</module>
         <module>springmvc-05-restful</module>
         <module>springmvc-05-form</module>
+        <module>springmvc-05-encoding</module>
     </modules>
 
     <!--  SpringMVC的依赖  -->
