@@ -13,11 +13,16 @@
             sex: "男"
         };
 
+        // 将JavaScript转换成为json字符串，使用console打印json字符串
         var json = JSON.stringify(user);
         console.log(json);
 
         // 使用console打印user对象
         console.log(user);
+
+        // 将json转换成为JavaScript对象，使用console打印json字符串
+        var obj = JSON.parse(json);
+        console.log(obj);
 
     </script>
 
