@@ -13,5 +13,11 @@
 <body>
 ${msg}
 
+<%--JavaScript不能写单独的标签，必须有闭合标签，
+不能这样写单独的标签写，如果这样引用资源，是引用不到的--%>
+<script src="test.jsp"/>
+
+<%--JavaScript应该这样写闭合标签--%>
+<script src="test.jsp"></script>
 </body>
 </html>
