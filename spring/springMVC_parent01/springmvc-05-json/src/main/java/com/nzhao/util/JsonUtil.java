@@ -7,6 +7,12 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.text.SimpleDateFormat;
 
 public class JsonUtil {
+    //为了使方法适应不同参数，我们需要重载，而研究别人的代码发现，
+    // 重写方法不是复制粘贴，而是调用其他写好的方法，然后参数传默认值
+    public static String getJson(Object object){
+        return getJson(object,"yyyy-MM-dd HH:mm:ss");
+    }
+
 
     public static String getJson(Object object, String dateFormat){
         ObjectMapper mapper = new ObjectMapper();
