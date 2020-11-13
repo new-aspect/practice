@@ -12,8 +12,7 @@ public class Hello7Controller {
     @RequestMapping("/hello7")
     public String hello(){
         Date date = new Date();
-        String json = JsonUtil.getJson(date);
-        return json;
+        return JsonUtil.getJson(date);
     }
 
 }
