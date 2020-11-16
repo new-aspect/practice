@@ -3,18 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
-            </dataSource>
-        </environment>
-    </environments>
-    <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
-    </mappers>
+
+<!--    mybatis配置数据源的事情在和spring整合以后交给spring去做  -->
+<!--  配置映射文件  -->
+    <typeAliases>
+        <package name="com.nzhao.pojo"/>
+    </typeAliases>
 </configuration>
