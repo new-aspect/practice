@@ -9,4 +9,8 @@
     <typeAliases>
         <package name="com.nzhao.pojo"/>
     </typeAliases>
+
+    <mappers>
+        <mapper class="com.nzhao.dao.BookMapping"/>
+    </mappers>
 </configuration>

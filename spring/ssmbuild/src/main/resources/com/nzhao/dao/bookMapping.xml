@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis的DTD约束-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nzhao.dao">
+
+    <insert id="addBook" parameterType="books">
+        INSERT INTO books(`bookID`,`bookName`,`bookCounts`,`detail`) VALUES (#{bookID}, #{bookName},#{bookCounts},#{detail})
+    </insert>
+
+    <delete id="deleteBookById" parameterType="int">
+        DELETE FROM `books` WHERE bookID = #{bookID}
+    </delete>
+
+    <update id="updateBook" parameterType="books">
+        UPDATE `books` SET `bookName` = #{bookName}, `bookCounts` = #{bookCounts}, detail = #{detail} WHERE bookID = #{bookID}
+    </update>
+
+    <select id="queryBookById" parameterType="int" resultType="books">
+        SELECT * FROM `books` WHERE bookID = #{bookID}
+    </select>
+
+    <select id="queryAllBook" resultType="books">
+        SELECT * FROM `books`
+    </select>
+
+
+</mapper>
