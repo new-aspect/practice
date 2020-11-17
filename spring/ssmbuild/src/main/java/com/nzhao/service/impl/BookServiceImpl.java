@@ -4,9 +4,12 @@ import com.nzhao.dao.BookMapping;
 import com.nzhao.pojo.Books;
 import com.nzhao.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
+@Service()
 public class BookServiceImpl implements BookService {
 
     //service层调用dao层
