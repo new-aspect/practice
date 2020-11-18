@@ -14,6 +14,7 @@
         text-align: center;/*文本居中*/
         line-hight: 38px ;/*行高和字体一样就可以居中了*/
         background: powderblue;/*背景是蓝色*/
+        border-radius: 5px;/* 圆角边框 */
       }
     </style>
 
