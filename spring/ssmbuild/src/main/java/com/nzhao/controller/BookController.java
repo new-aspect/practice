@@ -48,4 +48,23 @@ public class BookController {
         bookService.addBook(books);
         return "redirect:/book/allBook";//重定向到@RequestMapping("/allBook")请求
     }
+
+    /**
+     * 跳转到修改页面
+     */
+    @RequestMapping("/toUpdatePaper")
+    public String toUpdatePaper(int bookID,Model model){
+        Books books = bookService.queryBookById(bookID);
+        model.addAttribute("beforeBooks",books);
+        return "updateBook";
+    }
+
+    /**
+     * 修改书籍
+     */
+    @RequestMapping("/updateBook")
+    public String updateBook(Books books){
+        bookService.updateBook(books);
+        return "redirect:/book/allBook";
+    }
 }
