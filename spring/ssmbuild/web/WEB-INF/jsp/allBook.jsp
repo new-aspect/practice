@@ -59,7 +59,7 @@
                                 <a href="${pageContext.request.contextPath}/book/toUpdatePaper?bookID=${book.bookID}">修改</a>
                                 <%--   &nbsp; 是空格  --%>
                                 &nbsp; | &nbsp;
-                                <a href="">删除</a>
+                                <a href="${pageContext.request.contextPath}/book/delectBook?bookID=${book.bookID}">删除</a>
                             </td>
                         </tr>
                     </c:forEach>
