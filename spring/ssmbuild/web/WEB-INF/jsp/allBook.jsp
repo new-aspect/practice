@@ -25,6 +25,13 @@
                 <small>书籍列表 -- 显示所有书籍</small>
             </h1>
         </div>
+<%--    添加一个增加de按钮    --%>
+        <div class="row">
+            <%--   表示占用12格中的四格     --%>
+            <div class="col-md-4 colunm">
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddPaper">新增书籍</a>
+            </div>
+        </div>
     </div>
 
     <div class="row clearfix">
@@ -55,6 +62,6 @@
     </div>
 </div>
 
-<h3>allBook</h3>
+
 </body>
 </html>

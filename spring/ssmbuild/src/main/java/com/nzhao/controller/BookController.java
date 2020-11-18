@@ -30,4 +30,22 @@ public class BookController {
         model.addAttribute("list",booksList);
         return "allBook";
     }
+
+    /**
+     * 跳转到增加书籍页面
+     */
+    @RequestMapping("/toAddPaper")
+    public String toAddPaper(){
+        return "addBook";
+    }
+
+    /**
+     * 添加书籍的请求
+     */
+    @RequestMapping("/addBook")
+    public String addBook(Books books){
+        System.out.println(" >=  books  = "+books);
+        bookService.addBook(books);
+        return "redirect:/book/allBook";//重定向到@RequestMapping("/allBook")请求
+    }
 }
