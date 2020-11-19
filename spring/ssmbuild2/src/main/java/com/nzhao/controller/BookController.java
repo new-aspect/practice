@@ -41,4 +41,18 @@ public class BookController {
         bookService.addBook(books);
         return "redirect:/book/allBook";//注意这里是重定向
     }
+
+    @RequestMapping("/toUpdatePage")
+    public String toUpdatePage(int bookID,Model model){
+        Books books = bookService.queryBookByBookID(bookID);
+        model.addAttribute("beforeBook",books);
+        return "updateBook";
+    }
+
+    @RequestMapping("/updateBook")
+    public String updateBook(Books books){
+        bookService.updateBook(books);
+        return "redirect:/book/allBook";
+    }
+
 }
