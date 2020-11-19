@@ -7,6 +7,9 @@
 <body>
 
 <table>
+    <thead>
+    <a href="${pageContext.request.contextPath}/book/toaddPage">添加</a>
+    </thead>
     <tr>
         <th>图书名称</th>
         <th>图书数量</th>

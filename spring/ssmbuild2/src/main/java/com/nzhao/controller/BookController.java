@@ -5,7 +5,9 @@ import com.nzhao.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -26,6 +28,17 @@ public class BookController {
     public String allBook(Model model){
         List<Books> booksList = bookService.queryAll();
         model.addAttribute("beforeBooksList",booksList);
-        return "AllBook";
+        return "allBook";
+    }
+
+    @RequestMapping("/toaddPage")
+    public String toAddPage(){
+        return "addBook";
+    }
+
+    @RequestMapping("/addBook")
+    public String addBook(Books books){
+        bookService.addBook(books);
+        return "redirect:/book/allBook";//注意这里是重定向
     }
 }
