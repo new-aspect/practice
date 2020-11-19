@@ -19,10 +19,32 @@ public class DaoTest {
     BookMapping bookMapping;
 
     @Test
-    public void test(){
+    public void queryAllTest(){
 //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        BookMapping bookMapping = applicationContext.getBean(BookMapping.class);
         List<Books> books = bookMapping.queryAll();
         System.out.println(books);
+    }
+
+    @Test
+    public void addBookTest(){
+        bookMapping.addBook(new Books(9,"开始到放弃",15,"从放弃到开始"));
+    }
+
+
+    @Test
+    public void updateBookTest(){
+        bookMapping.updateBook(new Books(9,"完了",15,"从放弃到开始"));
+    }
+
+    @Test
+    public void queryByIdTest(){
+        Books books = bookMapping.queryBookByBookID(9);
+        System.out.println(books);
+    }
+
+    @Test
+    public void deleteBookTest(){
+        bookMapping.deleteBookByBookID(9);
     }
 }
