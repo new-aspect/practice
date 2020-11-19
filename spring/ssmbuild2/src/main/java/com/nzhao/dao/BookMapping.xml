@@ -6,7 +6,7 @@
 <mapper namespace="com.nzhao.dao.BookMapping">
 
     <select id="queryAll" resultType="books">
-        SELECT * FROM `books`;
+        SELECT * FROM `books`
     </select>
 
     <insert id="addBook" parameterType="books">
