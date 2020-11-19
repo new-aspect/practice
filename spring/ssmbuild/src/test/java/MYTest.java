@@ -1,3 +1,4 @@
+import com.nzhao.dao.BookMapping;
 import com.nzhao.pojo.Books;
 import com.nzhao.service.BookService;
 import com.nzhao.service.impl.BookServiceImpl;
@@ -17,5 +18,13 @@ public class MYTest {
         BookService bookService = (BookService)context.getBean("bookService");
         List<Books> books = bookService.queryAllBook();
         System.out.println(books.toString());
+    }
+
+    @Test
+    public void test2(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BookMapping bookMapping = applicationContext.getBean(BookMapping.class);
+        List<Books> books = bookMapping.queryAllBook();
+        System.out.println(books);
     }
 }
