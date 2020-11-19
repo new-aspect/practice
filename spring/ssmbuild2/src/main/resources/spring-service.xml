@@ -13,11 +13,19 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
+    <!--  1.包扫描service  -->
+    <context:component-scan base-package="com.nzhao.service"/>
 
-    <import resource="classpath:spring-dao.xml"/>
+    <!--  2. 将dao注入service，通过注解或者配置文件的方式都可以  -->
+    <bean class="com.nzhao.service.impl.BookServiceImpl">
+        <property name="bookMapping" ref="bookMapping"/>
+    </bean>
 
-    <import resource="classpath:spring-service.xml"/>
+    <!--  3. 声明式事物配置  -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-    <import resource="classpath:spring-mvc.xml"/>
+    <!--  4. Aop注入  -->
 
 </beans>
