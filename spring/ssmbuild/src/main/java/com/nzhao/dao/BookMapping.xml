@@ -25,5 +25,13 @@
         SELECT * FROM `books`
     </select>
 
+<!--
+    注意：因为#{...}解析成sql语句时候，会在变量外侧自动加单引号'  '，所以这里 % 需要使用双引号"  "，
+    不能使用单引号 '  '，不然会查不到任何结果。
+-->
+    <select id="queryBookByName" resultType="books">
+        SELECT * FROM books WHERE bookName LIKE "%"#{queryBookName}"%";
+    </select>
+
 
 </mapper>

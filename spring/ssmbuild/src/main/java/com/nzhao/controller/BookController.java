@@ -77,4 +77,14 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+    /**
+     * 按照书名查询（搜索框）
+     */
+    @RequestMapping("/queryBookByName")
+    public String queryBookByName(String queryBookName,Model model){
+        List<Books> booksList = bookService.queryBookByName(queryBookName);
+        model.addAttribute("list",booksList);
+        return "allBook";
+    }
+
 }

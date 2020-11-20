@@ -45,4 +45,9 @@ public class BookServiceImpl implements BookService {
     public List<Books> queryAllBook() {
         return bookMapping.queryAllBook();
     }
+
+    @Override
+    public List<Books> queryBookByName(String queryBookName) {
+        return bookMapping.queryBookByName(queryBookName);
+    }
 }

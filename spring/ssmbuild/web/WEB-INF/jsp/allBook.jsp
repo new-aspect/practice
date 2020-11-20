@@ -25,12 +25,20 @@
                 <small>书籍列表 -- 显示所有书籍</small>
             </h1>
         </div>
-<%--    添加一个增加de按钮    --%>
+<%--    添加一个增加的按钮    --%>
         <div class="row">
             <%--   表示占用12格中的四格     --%>
             <div class="col-md-4 colunm">
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddPaper">新增书籍</a>
             </div>
+            <%--    查询书籍（搜索栏）        --%>
+                <div class="col-md-4 colunm">
+                    <form action="${pageContext.request.contextPath}/book/queryBookByName" method="get" style="float: right">
+                        <%--   plaseholder是输入框默认的名字   --%>
+                        <input type="text" name="queryBookName" class="form-controller" placeholder="请输入查询书名">
+                        <input type="submit" value="查询" class="btn btn-primary">
+                    </form>
+                </div>
         </div>
     </div>
 
