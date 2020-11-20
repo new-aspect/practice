@@ -23,7 +23,7 @@
             <td>${books.detail}</td>
             <td>
                 <a href="/book/toUpdatePage?bookID=${books.bookID}">更新</a>
-                &nbsp;|	&nbsp;
+                &nbsp;|&nbsp;
                 <a href="/book/deleteBook?bookID=${books.bookID}">删除</a>
             </td>
         </tr>

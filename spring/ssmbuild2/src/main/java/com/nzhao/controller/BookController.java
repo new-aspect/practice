@@ -55,4 +55,11 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+    @RequestMapping("/deleteBook")
+    public String deleteBook(int bookID){
+        bookService.deleteBookByBookID(bookID);
+        return "redirect:/book/allBook";
+    }
+
+
 }
