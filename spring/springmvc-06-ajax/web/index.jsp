@@ -13,8 +13,10 @@
             $.post({
                 url: "${pageContext.request.contextPath}/ajaxTest",
                 data: {"name": $("#username").val()},
-                success: function (data) {
-                    alert(data);
+                success: function (data, statue) {
+                    //alert(data);
+                    //使用控制台输出
+                    console.log("data= "+data+" statue "+statue)
                 }
             })
         }
