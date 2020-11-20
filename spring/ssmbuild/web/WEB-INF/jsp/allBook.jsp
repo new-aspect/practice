@@ -33,7 +33,7 @@
             </div>
             <%--    查询书籍（搜索栏）        --%>
                 <div class="col-md-4 colunm">
-                    <form action="${pageContext.request.contextPath}/book/queryBookByName" method="get" style="float: right">
+                    <form action="${pageContext.request.contextPath}/book/queryBookByName" method="get" style="float: right" class="form-inline">
                         <%--   plaseholder是输入框默认的名字   --%>
                         <input type="text" name="queryBookName" class="form-controller" placeholder="请输入查询书名">
                         <input type="submit" value="查询" class="btn btn-primary">
