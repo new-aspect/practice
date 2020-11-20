@@ -9,8 +9,12 @@ public class AjaxController {
 
     @RequestMapping("/ajaxTest")
     @ResponseBody
-    public String ajaxTest(String name){
-        System.out.println("=> name = "+name);
-        return "success";
+    public String ajaxTest(String name) {
+        System.out.println("=> name = " + name);
+        if (name.equals("nzhao")) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
 }
