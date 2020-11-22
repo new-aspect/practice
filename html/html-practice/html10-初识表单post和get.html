@@ -87,10 +87,20 @@
         搜索：
         <input type="search" name="search">
     </p>
-<!--    <p>-->
-<!--        <input type="submit" name="提交">-->
-<!--        <input type="reset" name="清空">-->
-<!--    </p>-->
+
+    <p>用户名：<input type="text" name="username" placeholder="请输入用户名"></p>
+
+    <p>用户名：<input type="text" name="username" required></p>
+
+    <p>
+        正则表达式验证邮箱：
+        <input type="email" pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$">
+    </p>
+
+    <p>
+        <input type="submit" name="提交">
+        <input type="reset" name="清空">
+    </p>
 </form>
 
 </body>
