@@ -32,11 +32,30 @@
     <p>
         <!--   按键     -->
         <input type="button" name="btn1" value="点击变帅">
+        <!--   图片按钮,和submit的效果一样  -->
+<!--        <input type="image" src="https://scpic.chinaz.net/Files/pic/icons128/7903/w4.png">-->
     </p>
     <p>
-        <input type="submit" name="提交">
-        <input type="reset" name="清空">
+        <!--   下拉框select，中间的每一项是由option组成     -->
+        国家
+        <select name="列表名称">
+            <option value="China">中国</option>
+            <option value="America">美国</option>
+            <option value="Japan">日本</option>
+        </select>
     </p>
+
+    <p>
+        <!--   文本域，cols能显示有多少列，rows表示显示的行数     -->
+        <textarea cols="30" rows="10">
+            这里是默认填入的内容
+        </textarea>
+    </p>
+    
+<!--    <p>-->
+<!--        <input type="submit" name="提交">-->
+<!--        <input type="reset" name="清空">-->
+<!--    </p>-->
 </form>
 
 </body>
