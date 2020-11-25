@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+    //在没有ES6加入的Map之前，我们写一个学生的成绩，学生的姓名，须要用到两个变量，如下
+    var names = ["tom","jack","haha"];
+    var scores = [100,90,80];
+    // 但是这样连表查询麻烦，而且越长越慢，所以ES6加入Map
+    var map = new Map([["tom",100],["jack",90],["haha",90]]);
+    console.log(map);
+
+</script>
+
+</body>
+</html>
