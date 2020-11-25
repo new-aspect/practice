@@ -21,6 +21,14 @@
     map.set("admin",1234);
     console.log(map);
 
+    //使用Set类型可以去重，例如
+    var set = new Set(["1","3","5","1"]);
+    console.log(set);//"1","3","5"
+
+    //使用Set也可存放数组
+    var set2 = new Set([["tom",100],["jack",90],["haha",90],["tom",30],["tom",100]]);
+    console.log(set2);//["tom",100],["jack",90],["haha",90],["tom",30],["tom",100]
+
 </script>
 
 </body>
