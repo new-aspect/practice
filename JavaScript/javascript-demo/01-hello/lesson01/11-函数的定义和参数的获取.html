@@ -8,6 +8,7 @@
 <script>
     console.log(abs(-19));//19
 
+
     //定义绝对值函数
     function abs(value) {
         if (value > 0) {
@@ -16,6 +17,17 @@
             return -value;
         }
     }
+
+    //定义函数的方式2；
+    var abs2 = function(value) {
+        if (value > 0) {
+            return value;
+        } else {
+            return -value;
+        }
+    }
+
+    console.log(abs2(-19));//19
 </script>
 
 </body>
