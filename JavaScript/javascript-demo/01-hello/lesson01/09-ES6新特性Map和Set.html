@@ -12,6 +12,13 @@
     var scores = [100,90,80];
     // 但是这样连表查询麻烦，而且越长越慢，所以ES6加入Map
     var map = new Map([["tom",100],["jack",90],["haha",90]]);
+
+    //能使用get方法取出name对应的value
+    let value = map.get("tom");
+    console.log(value);
+
+    //可以使用set方法添加键值对
+    map.set("admin",1234);
     console.log(map);
 
 </script>
