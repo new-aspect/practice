@@ -51,13 +51,19 @@
     myFunction4();
 
     //使用let局部变量，解决这个问题
-    var myFunction5 = function (){
-        for (let i = 0; i < 10; i++) {
-            console.log(i);
-        }
-        console.log("作用域外测试 i = "+i);// 报错 i is not defined 说明解决变量出了作用域还可以使用的问题
-    }
-    myFunction5();
+    // var myFunction5 = function (){
+    //     for (let i = 0; i < 10; i++) {
+    //         console.log(i);
+    //     }
+    //     console.log("作用域外测试 i = "+i);// 报错 i is not defined 说明解决变量出了作用域还可以使用的问题
+    // }
+    // myFunction5();
+
+    //ES6 之前，定义常量只是约定名字为大写，希望大家不要更改名字为大写的变量，但还是可以更改
+    var PI = 3.14;
+    console.log(PI);//3.14
+    PI = 233;
+    console.log(PI);//233
 
 </script>
 <body>
