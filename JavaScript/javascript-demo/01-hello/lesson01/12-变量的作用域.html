@@ -50,6 +50,15 @@
     }
     myFunction4();
 
+    //使用let局部变量，解决这个问题
+    var myFunction5 = function (){
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        console.log("作用域外测试 i = "+i);// 报错 i is not defined 说明解决变量出了作用域还可以使用的问题
+    }
+    myFunction5();
+
 </script>
 <body>
 
