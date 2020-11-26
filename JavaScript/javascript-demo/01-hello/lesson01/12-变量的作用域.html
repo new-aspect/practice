@@ -26,6 +26,21 @@
 
         //之后随意使用
     }
+
+    //自己定义全局变量演示
+    var zhao = {};
+
+    //定义全局变量
+    zhao.name = "zhangsan";
+    zhao.add = function(x,y){
+        return x +y;
+    }
+    //调用全局变量
+    console.log("zhao.name = "+ zhao.name);//zhao.name = zhangsan
+    console.log("zhao.add = " +　zhao.add); //zhao.add = function(x,y){
+                                            //  return x +y;
+                                            //}
+
 </script>
 <body>
 
