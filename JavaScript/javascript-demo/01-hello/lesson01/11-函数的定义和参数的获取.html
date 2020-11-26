@@ -19,7 +19,7 @@
     }
 
     //定义函数的方式2；
-    var abs2 = function(value) {
+    var abs2 = function (value) {
         if (value > 0) {
             return value;
         } else {
@@ -31,7 +31,22 @@
 
 
     //可以手动定义异常，比如
-    throw "not find";//会在控制台抛出 Uncaught not find
+    //throw "not find";//会在控制台抛出 Uncaught not find
+
+
+    //假设参数不存在，如何处理
+    var abs3 = function (x) {
+        //假设参数不存在 我们可以定义手动抛出异常
+        if (typeof x != 'number') {
+            throw 'Not a number'
+        }
+        if (x >= 0) {
+            return x;
+        } else {
+            return -x;
+        }
+    }
+    console.log(abs3("abc"));//Uncaught Not a number
 </script>
 
 </body>
