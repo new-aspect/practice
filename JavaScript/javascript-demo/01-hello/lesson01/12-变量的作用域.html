@@ -17,6 +17,15 @@
         console.log('outer '+x);//outer 1
     }
     myFunction();
+
+    //重点：养成规范，所有的变量放到头部，便于维护，如下
+    function myFunction3(){
+        var x = 1,
+            y = x + 1,
+            z,i,a;//undefined
+
+        //之后随意使用
+    }
 </script>
 <body>
 
