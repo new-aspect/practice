@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //假设内部变量发现里面已经有一个x的变量，他就会屏蔽外部的x变量，输出的结果也是内部的变量
+    function myFunction(){
+        var x = 1;
+
+        function myFunction2(){
+            var x = 'A';
+            console.log('inner  '+x);//inner  A
+        }
+        myFunction2();
+        console.log('outer '+x);//outer 1
+    }
+    myFunction();
+</script>
+<body>
+
+</body>
+</html>
