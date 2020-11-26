@@ -57,6 +57,13 @@
     }
     abs4(10,20,30,50);
 
+    //ES6简化argument1参数的方式，用rest，使用方式...rest
+    var abs5 = function(x,y,...rest){
+        console.log("=> x = "+x);//=> x = 10
+        console.log("=> y = "+y);//=> y = 20
+        console.log("=> rest = "+rest);//=> rest = 30,50
+    }
+    abs5(10,20,30,50);
 </script>
 
 </body>
