@@ -38,7 +38,7 @@
     var abs3 = function (x) {
         //假设参数不存在 我们可以定义手动抛出异常
         if (typeof x != 'number') {
-            throw 'Not a number'
+            // throw 'Not a number'
         }
         if (x >= 0) {
             return x;
@@ -46,7 +46,17 @@
             return -x;
         }
     }
-    console.log(abs3("abc"));//Uncaught Not a number
+    // console.log(abs3("abc"));//Uncaught Not a number
+
+    //argument1是一个JS的关键字，代表传递进来的所有参数，是一个数组，例如
+    var abs4 = function(x){
+        console.log("x=>"+x);//10
+        for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);//10,20,30,50
+        }
+    }
+    abs4(10,20,30,50);
+
 </script>
 
 </body>
