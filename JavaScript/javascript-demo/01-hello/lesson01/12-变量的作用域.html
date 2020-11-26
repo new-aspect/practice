@@ -41,6 +41,15 @@
                                             //  return x +y;
                                             //}
 
+    //之前使用var的问题，var定义的变量出了作用域还可以使用，如下
+    var myFunction4 = function (){
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        console.log("作用域外测试 i = "+i);// 作用域为测试 i = 10
+    }
+    myFunction4();
+
 </script>
 <body>
 
