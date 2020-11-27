@@ -23,12 +23,18 @@
         }
         var person2 = {
             name: "lisi",
-            birth: 1970,
+            birth: 1990,
             //方法
             age: getAge,//注意，这里的getAge后面没有括号，有括号会报错
         }
-        console.log(person2.age());//50
-    </script>
+        console.log(person2.age());//30
+
+
+        //测试apply方法
+        console.log(getAge.apply(person,[]));//this指向了person对象，参数为空，
+        // console.log打印值为50
+
+    </script>7
 </head>
 <body>
 
