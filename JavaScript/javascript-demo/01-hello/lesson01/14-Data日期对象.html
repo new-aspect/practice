@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        "use strict";
+        //使用typeof可以判断字符类型
+        console.log(typeof "123");//string
+        console.log(typeof 123);//number
+        console.log(typeof true);//boolean
+        console.log(typeof NaN);//number
+        console.log(typeof []);//数组  object
+        console.log(typeof {});//对象  object
+        console.log(typeof Math.abs);//方法  function
+        console.log(typeof undefined);// undefined
+
+        var now = new Date();
+        console.log(now);//Fri Nov 27 2020 19:36:13 GMT+0800 (中国标准时间)
+        console.log(now.getFullYear());//年 2020
+        console.log(now.getMonth());//月  10   其实是从0开始计算，所以10是指11月
+        console.log(now.getDate());//日   27
+        console.log(now.getDay());//星期几 5
+        console.log(now.getHours());//时 22
+        console.log(now.getMinutes());//分 13
+        console.log(now.getSeconds());//秒 50
+
+        console.log(now.getTime());//时间戳，全时间统一 从1970年到现在的毫秒数 1606486430456
+
+        //转换
+        console.log(now.toLocaleDateString()); // 2020/11/27
+        console.log(now.toUTCString()); //Fri, 27 Nov 2020 14:24:47 GMT
+    </script>
+</head>
+<body>
+
+</body>
+</html>
