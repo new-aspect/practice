@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //定义一个JavaScript对象
+    var user = {
+        name: "zhangsan",
+        age: "23",
+        address: "nanjing",
+    }
+    console.log(user);
+
+    //JavaScript对象转换为JSON
+    var json = JSON.stringify(user);
+    console.log(json);
+
+    //JSON转换为JavaScript对象，也可以使用使用‘’
+    var obj = JSON.parse("{\"name\":\"zhangsan\",\"age\":\"23\",\"address\":\"nanjing\"}");
+    console.log(obj);//我们发现它转换为对象
+</script>
+
+
+</body>
+</html>
