@@ -26,7 +26,22 @@
 
         //定义一个对象使用类
         var xiaoming = new Student("xiaoming");
-        xiaoming.hello();
+        // xiaoming.hello();
+
+        //定义一个类，继承Student
+        class Primary extends Student{
+            constructor(name,grade) {
+                super(name);
+                this.grade = grade;
+            }
+            //"name = " + this.name+
+            grade(){
+                alert("grade = "+this.grade);
+            }
+        }
+
+        var daliu = new Primary("daliu","six");
+        daliu.grade();
     </script>
 </head>
 <body>
