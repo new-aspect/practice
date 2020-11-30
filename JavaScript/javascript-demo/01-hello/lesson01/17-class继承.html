@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //ES6之前定义类的方式，不推荐使用
+        // function Student(name){
+        //     this.name = name;
+        // };
+        // //给student新增一个方法
+        // Student.prototype.hello = function (){
+        //     alert('hello');
+        // }
+
+        //ES6之后定义一个类，这个类有属性和方法
+        class Student{
+            constructor(name) {
+                this.name = name;
+            }
+
+            hello(){
+                alert('hello '+ this.name);//不知道到为什么需要用this.name
+            }
+        }
+
+        //定义一个对象使用类
+        var xiaoming = new Student("xiaoming");
+        xiaoming.hello();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
