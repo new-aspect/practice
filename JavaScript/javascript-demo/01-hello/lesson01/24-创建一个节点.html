@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div"></div>
+
+<script>
+    var newP = document.createElement('p');//创建一个p标签
+    newP.id="newP";
+    newP.innerText = '使用JavaScript创建的节点，并赋值';
+    document.getElementById("div").append(newP);//追加到后面
+</script>
+
+</body>
+</html>
