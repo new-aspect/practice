@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var myScript = document.createElement('script');
+    // 相当于<script type="text/javascript">
+    myScript.setAttribute('type','text/javascript');
+    document.getElementsByTagName('head')[0].append(myScript);
+</script>
+</body>
+</html>
