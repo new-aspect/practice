@@ -16,6 +16,10 @@
     var div1 = document.getElementById('div1');
     // 能通过innerText拿到里面的文本内容，可以给文本内容赋值
     div1.innerText = "hello";
+    // innerHTML可以解析HTML，也就是下面的标签可以以HTML的方式执行
+    div1.innerHTML = '<a href="https://www.baidu.com/">点我跳转</a>'
+    // innerText不能解析HTML，也就是下面的标签只会作为字符串输出
+    div1.innerText = '<a href="https://www.baidu.com/">点我跳转</a>'
 </script>
 
 </body>
