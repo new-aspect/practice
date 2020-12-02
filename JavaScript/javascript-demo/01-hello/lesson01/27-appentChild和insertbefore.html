@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+<p id="p3">This is new</p>
+
+<script>
+    var p3 = document.getElementById("p3");
+    var p1 = document.getElementById("p1");
+    // document.getElementById("div1").appendChild(p3);
+    document.getElementById("div1").insertBefore(p3,p1);//p3插座p1的前面
+</script>
+
+</body>
+</html>
