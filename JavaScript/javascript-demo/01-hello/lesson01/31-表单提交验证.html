@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#">
+    <!--  没有name属性就无法发出这个值  -->
+    <input type="text" id="username" name="username"><br>
+    <input type="password" id="password" name="password"><br>
+    <button onclick="aaa()"></button>
+</form>
+
+<script>
+    function aaa(){
+        var username = document.getElementById('username');
+        console.log(username.value);
+        username.value = '456';
+        //return true;
+    }
+</script>
+</body>
+</html>
