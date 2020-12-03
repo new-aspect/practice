@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+</head>
+<body>
+
+<form action="#" method="post">
+    <!--  没有name属性就无法发出这个值  -->
+    <input type="text" id="username" name="username"><br>
+    <input type="password" id="password" name="password"><br>
+    <button onclick="aaa()"></button>
+</form>
+
+<script>
+    function aaa(){
+        var username = document.getElementById('username');
+        // md5加密
+        username.value = md5(username.value);
+        //return true;
+    }
+</script>
+
+</body>
+</html>
