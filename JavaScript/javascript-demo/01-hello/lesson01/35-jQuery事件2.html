@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <style>
+        #divMove{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+mouse : <span id="mouseMove"></span>
+<div id="divMove">
+    在这里移动试一试
+</div>
+
+<script>
+    //当网页元素加载完成后，
+    $(function (){
+        $('#divMove').mousemove(function (e){
+            $('#mouseMove').text('x: '+e.pageX+' y: '+e.pageY)
+        })
+    });
+</script>
+
+</body>
+</html>
