@@ -5,7 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<script></script>
-
+<script src="js/jquery-3.5.1.js"></script>
+<ul id="test-ul">
+    <li class="coffee">Coffee</li>
+    <li name="tea">Tea</li>
+    <li id="milk">Milk</li>
+</ul>
+<script>
+    $('#test-ul li[name="tea"]').text('new Tea');
+</script>
 </body>
 </html>
