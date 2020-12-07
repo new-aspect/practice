@@ -12,6 +12,7 @@ public class DateTest {
         Date date = new Date();
         String format = new SimpleDateFormat("yyyy-MM-dd").format(date);
         System.out.println(format);
+        // 2020-12-07
     }
 
 }
