@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--    mybatis配置数据源的事情在和spring整合以后交给spring去做  -->
+    <!--  配置映射文件  -->
+    <typeAliases>
+        <package name="com.nzhao.pojo"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper class="com.nzhao.dao.UserMapping"/>
+    </mappers>
+</configuration>

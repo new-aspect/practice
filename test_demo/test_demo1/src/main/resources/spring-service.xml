@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+    <!--  1.扫描service下的包  -->
+    <context:component-scan base-package="com.nzhao.service"/>
+
+    <!--  2.将我们所有的业务类，注入到Spring，可以通过配置，或者注解实现  -->
+<!--    <bean id="bookService" class="com.nzhao.service.impl.BookServiceImpl">-->
+<!--        &lt;!&ndash;    两种方式引入bookMapper，第一种，通过idea配置，第二种，通过impl引入    &ndash;&gt;-->
+<!--        <property name="bookMapping" ref="bookMapping"/>-->
+<!--    </bean>-->
+
+    <!--  3.声明式事物配置  -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--   注入数据源     -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--  4.aop事物支持  -->
+
+</beans>
