@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/name",method= RequestMethod.GET, produces={"application/json; charset=UTF-8"})
+    @RequestMapping(value = "/user/name",method= RequestMethod.GET)
     public String getUserName(ServletResponse response){
         response.setCharacterEncoding("utf-8");
         List<String> userNameList = userService.getUserName();
