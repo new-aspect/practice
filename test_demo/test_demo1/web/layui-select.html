@@ -8,40 +8,52 @@
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
-    <from>
-        垃圾名称：
+<form class="layui-form" action="#">
+    <div class="layui-form-item">
         <div class="layui-inline">
-            <select id="refusename" name="refusename">
+            垃圾名称：
+            <select id="refusename" name="refusename" lay-search>
                 <option value="">全部</option>
             </select>
         </div>
-    </from>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit>立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
 
-    <script>
-        layui.use(['form', 'table', "laydate", 'layer'], function () {
-            var form = layui.form;
-            var table = layui.table;
-            var layer = layui.layer;
 
-            //重点在这里， 获取后台数据， 再拼装， 最后记得form.render
-            $.ajax({
-                url: '/user/name',
-                dataType: 'json',
-                type: 'get',
-                contentType:"application/json;charset=utf-8",
-                success: function (data) {
-                    console.log(data);
-                    console.log(data.name);
-                    let str = "<option value=''>全部</option>";
-                    for (let i of data.name) {
-                        str += `<option value='${i}'>${i}</option>`;
-                    }
-                    $("#refusename").html(str);
-                    form.render();
-                    //重新渲染 固定写法
+    </div>
+</form>
+
+
+
+<script>
+    layui.use(['form', 'table', "laydate", 'layer'], function () {
+        var form = layui.form;
+        var table = layui.table;
+        var layer = layui.layer;
+
+        //重点在这里， 获取后台数据， 再拼装， 最后记得form.render
+        $.ajax({
+            url: '/user/name',
+            dataType: 'json',
+            type: 'get',
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                console.log(data);
+                console.log(data.name);
+                let str = "<option value=''>全部</option>";
+                for (let i of data.name) {
+                    str += `<option value='${i}'>${i}</option>`;
                 }
-            });
-        })
-    </script>
+                $("#refusename").html(str);
+                form.render();
+                //重新渲染 固定写法
+            }
+        });
+    })
+</script>
 </body>
 </html>
