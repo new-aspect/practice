@@ -44,9 +44,11 @@
             success: function (data) {
                 console.log(data);
                 console.log(data.name);
-                let str = "<option value=''>全部</option>";
+                var str = "<option value=''>全部</option>";
                 for (let i of data.name) {
-                    str += `<option value='${i}'>${i}</option>`;
+                        if(i!=='') {
+                            str += `<option value='${i}'>${i}</option>`;
+                        }
                 }
                 $("#refusename").html(str);
                 form.render();
