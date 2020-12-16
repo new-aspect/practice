@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 测试，url传入用户名，使用javascript输出 , 例如http://localhost:8084/script-test.html?name=nzhao&name=lamu
+    let params = new URLSearchParams(location.search);
+    let getName = params.get('name');
+    let getAllName = params.getAll('name');
+
+    console.log("getName = "+getName);
+    console.log("getAllName = " + getAllName);
+</script>
+
+</body>
+</html>
