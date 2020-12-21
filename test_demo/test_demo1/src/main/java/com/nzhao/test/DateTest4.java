@@ -15,5 +15,9 @@ public class DateTest4 {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2020-12-29");
         Date date = simpleDateFormat.parse("2020-12-29");
         System.out.println(date);
+
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("2020-12-29");
+        Date date2 = simpleDateFormat.parse("2020-12-29");
+        System.out.println(date2);
     }
 }
