@@ -1,0 +1,64 @@
+/*box*/
+.panel-box-body {background-color: #f3f3f3;}
+/*panel-box*/
+.panel-box {background-color: #f3f3f3;}
+/*confirm-save-determine*/
+.btn-confirm{background-color: #e4e4e4;border-color: #b1b1b1;color:#000;}
+.btn-confirm:hover,
+.btn-confirm:active,
+.btn-confirm.hover{color:#000;background: #d8d8d8;border-color: #b1b1b1;}
+/*messager-button*/
+.messager-button .l-btn:first-child  {background-color: #e4e4e4;border-color: #b1b1b1;color:#000;}
+.messager-button .l-btn:first-child:hover {background: #d8d8d8;border-color: #b1b1b1;}
+/*loading*/
+.progressbar-value .progressbar-text {background-color: #d6d6d6;color: #000;}
+/*form*-opacity*/
+.slider-handle {background:#b1b1b1;}
+/*icheckbox*/
+.icheckbox_minimal-blue,
+.iradio_minimal-blue {background: url('grey/blue.png') no-repeat;}
+.iradio_minimal-blue {background-position: -100px 0;}
+/*combobox*/
+.combobox-item-selected {background-color: #b1b1b1;}
+/*tagbox*/
+.tagbox-label {background: #ececec;}
+/*button-text*/
+.linkbutton-text:hover{color: #b1b1b1;}
+/*search-buttom*/
+.searchbox-button {background-color: #b1b1b1;}
+.search-box .searchbox-button {border: 1px solid #b1b1b1;}
+/*menu*/
+.menu-active {background-color: #cacaca;}
+.m-btn-active,
+.s-btn-active {background: #eaf2ff;}
+/*dataTime*/
+.calendar-selected{background-color: #b1b1b1;}
+/*tabs*/
+.tabs li.tabs-selected a.tabs-inner {
+  background-color: #f3f3f3;
+  border-top: 3px solid #676767;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #eceff4;
+}
+/*tabs-secondary*/
+.tabs-header-plain .tabs li a.tabs-inner {
+  background-color:#fff;
+  border-top: 3px solid #fff;
+  border-left:1px solid #f4f4f4;
+  border-right:1px solid #f4f4f4;
+  border-bottom:1px solid #fff;
+}
+.tabs-header-plain .tabs li.tabs-selected a.tabs-inner {
+  border-top: 3px solid #dfe0e2;
+}
+/*tree*/
+.tree-folder {background: url('grey/tree_icons.png') no-repeat -208px 0;}
+.tree-folder-open {background: url('grey/tree_icons.png') no-repeat -225px 0;}
+.tree-file {background: url('grey/tree_icons.png') no-repeat -240px 0;}
+.tree-checkbox0 {background: url('grey/tree_icons.png') no-repeat -208px -30px;}
+.tree-checkbox1 {background: url('grey/tree_icons.png') no-repeat -224px -30px;}
+.tree-checkbox2 {background: url('grey/tree_icons.png') no-repeat -240px -30px;}
+/*datagrid-pager*/
+.datagrid .datagrid-pager  .l-btn-plain-selected,
+.datagrid .datagrid-pager  .l-btn-plain-selected:hover {background: #d8d8d8;border-color: #dddddd; color:#000;}

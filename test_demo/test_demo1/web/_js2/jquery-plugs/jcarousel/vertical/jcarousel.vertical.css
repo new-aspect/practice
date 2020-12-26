@@ -1,0 +1,112 @@
+.jcarousel-wrapper {
+    margin: 0 0;
+    position: relative;
+    border: 0px solid #fff;
+    width: 30px;
+    height: 375px;
+    padding: 32px 0 22px 0;
+}
+
+.jcarousel-wrapper .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.jcarousel-wrapper .photo-credits a {
+    color: #fff;
+}
+
+/** Carousel **/
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    width: 30px;
+    height: 375px;
+}
+
+.jcarousel img {
+    display: block;
+}
+
+.jcarousel ul {
+    width: 100%;
+    height: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    float: left;
+}
+
+/** Carousel Controls **/
+.jcarousel-control-prev,
+.jcarousel-control-next {
+}
+
+.jcarousel-control-prev {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(img/prev-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-control-next {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(img/next-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-control-prev:hover span,
+.jcarousel-control-next:hover span {
+    display: block;
+}
+
+.jcarousel-control-prev.inactive,
+.jcarousel-control-next.inactive {
+    opacity: .0;
+    cursor: default;
+}
+
+/** Carousel Pagination **/
+.jcarousel-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    background: #fff;
+    color: #4E443C;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    margin-right: 2px;
+    opacity: .75;
+}
+
+.jcarousel-pagination a.active {
+    background: #4E443C;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}

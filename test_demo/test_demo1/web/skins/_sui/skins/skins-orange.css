@@ -1,0 +1,64 @@
+/*box*/
+.panel-box-body {background-color: #f1f1f1;}
+/*panel-box*/
+.panel-box {background-color: #f1f1f1;}
+/*confirm-save-determine*/
+.btn-confirm{background: #f0ad4e;border-color: #eea236;}
+.btn-confirm:hover,
+.btn-confirm:active,
+.btn-confirm.hover{color:#fff;background: #ec971f;border-color: #d58512;}
+/*messager-button*/
+.messager-button .l-btn:first-child  {background: #f0ad4e;border-color: #eea236;}
+.messager-button .l-btn:first-child:hover {color:#fff;background: #ec971f;border-color: #d58512;}
+/*loading*/
+.progressbar-value .progressbar-text {background-color: #f0ad4e;color: #fff;}
+/*form*-opacity*/
+.slider-handle {background:#f0ad4e;}
+/*icheckbox*/
+.icheckbox_minimal-blue,
+.iradio_minimal-blue {background: url('orange/blue.png') no-repeat;}
+.iradio_minimal-blue {background-position: -100px 0;}
+/*combobox*/
+.combobox-item-selected {background-color: #f0ad4e;}
+/*tagbox*/
+.tagbox-label {background: #ececec;}
+/*button-text*/
+.linkbutton-text:hover{color: #ec971f;}
+/*search-buttom*/
+.searchbox-button {background-color: #f0ad4e; border: 1px solid #f0ad4e;}
+.search-box .searchbox-button {border: 1px solid #f0ad4e;}
+/*menu*/
+.menu-active {background-color: #f0ad4e;}
+.m-btn-active,
+.s-btn-active {background: #f0f0f0;}
+/*dataTime*/
+.calendar-selected{background-color: #f0ad4e;}
+/*tabs*/
+.tabs li.tabs-selected a.tabs-inner {
+  background-color: #f1f1f1;
+  border-top: 3px solid #f0ad4e;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #eceff4;
+}
+/*tabs-secondary*/
+.tabs-header-plain .tabs li a.tabs-inner {
+  background-color:#fff;
+  border-top: 3px solid #fff;
+  border-left:1px solid #f4f4f4;
+  border-right:1px solid #f4f4f4;
+  border-bottom:1px solid #fff;
+}
+.tabs-header-plain .tabs li.tabs-selected a.tabs-inner {
+  border-top: 3px solid #ced8e8;
+}
+/*tree*/
+.tree-folder {background: url('orange/tree_icons.png') no-repeat -208px 0;}
+.tree-folder-open {background: url('orange/tree_icons.png') no-repeat -225px 0;}
+.tree-file {background: url('orange/tree_icons.png') no-repeat -240px 0;}
+.tree-checkbox0 {background: url('orange/tree_icons.png') no-repeat -208px -30px;}
+.tree-checkbox1 {background: url('orange/tree_icons.png') no-repeat -224px -30px;}
+.tree-checkbox2 {background: url('orange/tree_icons.png') no-repeat -240px -30px;}
+/*datagrid-pager*/
+.datagrid .datagrid-pager  .l-btn-plain-selected,
+.datagrid .datagrid-pager  .l-btn-plain-selected:hover {background: #ec971f;border-color: #d58512;}
