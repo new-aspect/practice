@@ -10,6 +10,8 @@ public class listTest {
         li.add("z");
         li.add("p");
         li.add("1");
+        li.add("1");
+
 
         for (int i = 0; i < li.size(); i++) {
             System.out.println(li.get(i));
