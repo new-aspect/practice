@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors NatLiu (natcube@gmail.com)
+ * @date    2017-08-25 09:35:37
+ * @version $Id$
+ */
+.table-buttons .btn {
+	margin: 0 2px;
+}
+
+.table-buttons .dropdown-menu > .divider {
+	margin: 2px 0px;
+}
+
+.table-buttons .dropdown-menu > li.table-button-delete > a:hover {
+	color: #c00;
+}

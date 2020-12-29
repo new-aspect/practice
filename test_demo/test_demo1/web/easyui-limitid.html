@@ -30,9 +30,8 @@
 
 </head>
 <body class="easyui-layout sudyui mainbg dlycyh fwkz">
-<div data-options="region:'north',border:false,noheader:true, cls:'noborder'" class="panel-box-body">
-    <h3 class="maintitle panel-box-p020 font-weight pt20">IP访问控制</h3>
-</div>
+
+
 <div region="center" border="false" class="panel-box-body ">
     <div class="panel-box easyui-panel fw1" data-options="fit:false, bodyCls:'panel-box-p020 pt10'">
 
@@ -342,113 +341,95 @@
 								fitColumns:true,
 								scrollbarSize :0,
 								method: 'get'">
-
                     </table>
-                    <script type="text/javascript">
-                        var folderType = [[
-                            {field: 'ck', checkbox: 'true', width: 20, align: 'center'},
-                            {field: 'id', hidden: 'true', width: 20, align: 'center'},
-                            {field: 'ip', title: 'IP段', width: 150, align: 'left'},
-                            {field: 'limitType', title: '禁用规则', width: 100, align: 'center'},
-                            {field: 'siteName', title: '禁用网站', width: 150, align: 'left'},
-                            {
-                                field: 'limitTimeType', title: '禁用时间', width: 150, align: 'center',
-                                formatter: function (value, row, index) {
-                                    var row = $('#dlycyh-dg').datagrid('getData').rows[index];
-                                    if (value == "定时") {
-                                        var startTime = (row.startTime.replace(/-/g, ".")).substring(0, row.startTime.length - 2);
-                                        if (startTime == "1000.01.01 00:00:00") {
-                                            startTime = "0000.00.00 00:00:00";
-                                        }
-
-                                        var endTime = (row.endTime.replace(/-/g, ".")).substring(0, row.endTime.length - 2);
-                                        if (endTime == "1000.01.01 00:00:00") {
-                                            endTime = "0000.00.00 00:00:00";
-                                        }
-                                        return startTime + " - " + endTime;
-                                    } else {
-                                        return row.limitTimeType;
-                                    }
-                                }
-                            },
-                            {field: 'remark', title: '备注', width: 150, align: 'left'}
-                        ]];
-                        $(function () {
-
-                            function testformat(value, row, index) {
-                                console.log(this.cellClass + '=========' + index);
-                            }
-
-
-                            loadData('api/visitInfoList.rst', folderType);
-
-                            function loadData(jsonUrl, cols) {
-                                $('#dlycyh-dg').datagrid({
-                                    url: jsonUrl,
-                                    columns: cols,
-                                    pagination: true,//如果表格需要支持分页，必须设置该选项为true
-                                    loadMsg: '数据正在努力加载，请稍后...',   //加载数据时显示提示信息
-                                    onLoadSuccess: function (data) {
-                                    }
-                                });
-                            }
-
-                            var p = $('#dlycyh-dg').datagrid('getPager');
-                            p.pagination('links');
-
-                        });
-
-                        function deleteVisitInfo() {
-                            var rows = $("#dlycyh-dg").datagrid("getChecked");
-                            if (rows.length == 0) {
-                                $.messager.alert("提示", alertPrefix + "请选择要删除的IP访问信息！", "warning");
-                                //alert("请选择要删除的IP访问信息！");
-                                return;
-                            }
-                            var ids = [];
-                            for (var i = 0; i < rows.length; i++) {
-                                ids.push(rows[i].id);
-                            }
-                            $.post("api/deleteVisitInfo.rst?_p=YXM9MSZwPTEmbT1OJg__&selectedIds=" + ids.join(","), function (result) {
-                                if (result == "success") {
-                                    $.messager.alert("提示", "删除成功", function (result) {
-                                    });
-                                    for (var i = 0; i < 3; i++) {
-                                        $('#dlycyh-dg').datagrid('reload');
-                                    }
-                                } else {
-                                    var msg = "数据异常";
-                                    try {
-                                        msg = eval("(" + result + ")").msg;
-                                    } catch (e) {
-                                    }
-                                    $.messager.alert('错误', msg, "error");
-                                }
-                            });
-                        }
-                    </script>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
-</body>
+
 <script type="text/javascript">
-    $(document).ready(function () {
-        //复选框,单选框：添加皮肤
-        $('.sudy-form input[type="checkbox"],input[type="radio"]').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass: 'iradio_minimal-blue',
-            increaseArea: '20%'
-        });
-        $(":input[type='radio'][name='limitTimeType']").change(function () {
-            if ($(":input[name='limitTimeType']:checked").val() == 1) {
-                $("#startTimediv").attr("style", "display:none;");
-                $("#endTimediv").attr("style", "display:none;");
+    var folderType = [[
+        {field: 'ck', checkbox: 'true', width: 20, align: 'center'},
+        {field: 'id', hidden: 'true', width: 20, align: 'center'},
+        {field: 'ip', title: 'IP段', width: 150, align: 'left'},
+        {field: 'limitType', title: '禁用规则', width: 100, align: 'center'},
+        {field: 'siteName', title: '禁用网站', width: 150, align: 'left'},
+        {
+            field: 'limitTimeType', title: '禁用时间', width: 150, align: 'center',
+            formatter: function (value, row, index) {
+                var row = $('#dlycyh-dg').datagrid('getData').rows[index];
+                if (value == "定时") {
+                    var startTime = (row.startTime.replace(/-/g, ".")).substring(0, row.startTime.length - 2);
+                    if (startTime == "1000.01.01 00:00:00") {
+                        startTime = "0000.00.00 00:00:00";
+                    }
+
+                    var endTime = (row.endTime.replace(/-/g, ".")).substring(0, row.endTime.length - 2);
+                    if (endTime == "1000.01.01 00:00:00") {
+                        endTime = "0000.00.00 00:00:00";
+                    }
+                    return startTime + " - " + endTime;
+                } else {
+                    return row.limitTimeType;
+                }
+            }
+        },
+        {field: 'remark', title: '备注', width: 150, align: 'left'}
+    ]];
+    $(function () {
+
+        function testformat(value, row, index) {
+            console.log(this.cellClass + '=========' + index);
+        }
+
+
+        loadData('api/visitInfoList.rst', folderType);
+
+        function loadData(jsonUrl, cols) {
+            $('#dlycyh-dg').datagrid({
+                url: jsonUrl,
+                columns: cols,
+                pagination: true,//如果表格需要支持分页，必须设置该选项为true
+                loadMsg: '数据正在努力加载，请稍后...',   //加载数据时显示提示信息
+                onLoadSuccess: function (data) {
+                }
+            });
+        }
+
+        var p = $('#dlycyh-dg').datagrid('getPager');
+        p.pagination('links');
+
+    });
+
+    function deleteVisitInfo() {
+        var rows = $("#dlycyh-dg").datagrid("getChecked");
+        if (rows.length == 0) {
+            $.messager.alert("提示", alertPrefix + "请选择要删除的IP访问信息！", "warning");
+            //alert("请选择要删除的IP访问信息！");
+            return;
+        }
+        var ids = [];
+        for (var i = 0; i < rows.length; i++) {
+            ids.push(rows[i].id);
+        }
+        $.post("api/deleteVisitInfo.rst?_p=YXM9MSZwPTEmbT1OJg__&selectedIds=" + ids.join(","), function (result) {
+            if (result == "success") {
+                $.messager.alert("提示", "删除成功", function (result) {
+                });
+                for (var i = 0; i < 3; i++) {
+                    $('#dlycyh-dg').datagrid('reload');
+                }
+            } else {
+                var msg = "数据异常";
+                try {
+                    msg = eval("(" + result + ")").msg;
+                } catch (e) {
+                }
+                $.messager.alert('错误', msg, "error");
             }
         });
-    });
+    }
 </script>
+</body>
 </html>
