@@ -1,5 +1,6 @@
 package com.nzhao;
 
+import javax.swing.*;
 import java.sql.*;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.*;
 public class JdbcTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //1. 加载驱动，这里是通过反射的方式实现
-
+        // DriverManager.registerDriver(new Driver());
         Class.forName("com.mysql.jdbc.Driver");
 
         //2. 用户登录信息
@@ -18,6 +19,11 @@ public class JdbcTest {
 
         //3. 连接成功后创建数据库连接对象connection
         Connection connection = DriverManager.getConnection(url, username, password);
+        // 和数据库操作相关
+        connection.rollback();
+        connection.commit();
+        connection.setAutoCommit(true);
+        connection.getAutoCommit();
 
         //4. 获得执行sql的对象 statement
         Statement statement = connection.createStatement();
