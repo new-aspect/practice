@@ -1,5 +1,7 @@
 package com.nzhao.dao;
 
+import com.nzhao.pojo.User;
+
 import java.util.List;
 
 /**
@@ -8,4 +10,6 @@ import java.util.List;
 public interface UserMapping {
 
     List<String> getUserName();
+
+    List<User> queryAll();
 }

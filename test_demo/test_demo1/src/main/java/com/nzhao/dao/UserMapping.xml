@@ -9,4 +9,8 @@
         SELECT `user_name` FROM `user` GROUP BY `user_name`
     </select>
 
+    <select id="queryAll" resultType="user">
+        SELECT * FROM `user`;
+    </select>
+
 </mapper>

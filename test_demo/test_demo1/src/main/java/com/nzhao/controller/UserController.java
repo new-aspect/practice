@@ -1,8 +1,10 @@
 package com.nzhao.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.nzhao.pojo.User;
 import com.nzhao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.JsonbHttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,8 +31,12 @@ public class UserController {
         List<String> userNameList = userService.getUserName();
         Map map = new HashMap();
         map.put("name",userNameList);
-        String json = JSON.toJSONString(map);
-        System.out.println("json = "+json);
-        return json;
+        return JSON.toJSONString(map);
+    }
+
+    @RequestMapping(value = "/user/queryAll", method= {RequestMethod.GET,RequestMethod.POST}, produces={"application/json; charset=UTF-8"})
+    public String queryAll(){
+        List<User> users = userService.queryAll();
+        return JSON.toJSONString(users);
     }
 }
