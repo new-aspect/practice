@@ -25,7 +25,7 @@ public class JdbcUtils {
             driver = properties.getProperty("jdbc.driver");
             url = properties.getProperty("jdbc.url");
             username = properties.getProperty("jdbc.username");
-            password = properties.getProperty("password");
+            password = properties.getProperty("jdbc.password");
 
             Class.forName(driver);
         } catch (Exception e) {
