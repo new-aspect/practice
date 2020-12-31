@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <!--  数据表格页面  -->
+    <!-- --------------------- 数据表格页面 ----------------------------------------------- -->
     <table id="dg" title="My Users" class="easyui-datagrid" style="width:550px;height:250px"
            url="/user/queryAll" toolbar="#toolbar" 	rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
@@ -23,8 +23,6 @@
         </tr>
         </thead>
     </table>
-
-
     <div id="toolbar">
         <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">新建用户</a>
         <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑用户</a>
@@ -32,39 +30,71 @@
     </div>
 
 
-<!--   新建用户    -->
+    <!-- --------------------- 新建和编辑用户的弹窗 ----------------------------------------------- -->
+
     <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
          closed="true" buttons="#dlg-buttons">
         <div class="ftitle">User Information</div>
         <form id="fm" method="post">
             <div class="fitem">
-                <label>First Name:</label>
-                <input name="firstname" class="easyui-validatebox" required="true">
+                <label>id:</label>
+                <input name="id" class="easyui-validatebox" required="true">
             </div>
             <div class="fitem">
-                <label>Last Name:</label>
-                <input name="lastname" class="easyui-validatebox" required="true">
+                <label>姓名:</label>
+                <input name="name" class="easyui-validatebox" required="true">
             </div>
             <div class="fitem">
-                <label>Phone:</label>
-                <input name="phone">
-            </div>
-            <div class="fitem">
-                <label>Email:</label>
-                <input name="email" class="easyui-validatebox" validType="email">
+                <label>地址:</label>
+                <input name="address">
             </div>
         </form>
     </div>
     <div id="dlg-buttons">
-        <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">保存</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">关闭</a>
     </div>
 
+
+    <!-- --------------------- 对应的JavaScript代码 ----------------------------------------------- -->
+
     <script>
+        // 新建和编辑保存时共用这个url
+        let saveUrl;
+
+        /**
+         * 弹出新建用户弹窗
+         */
         function newUser(){
-            $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
+            // 弹出标签为dlg的弹窗
+            $('#dlg').dialog('open').dialog('setTitle','新建用户');
+            // 新建完用户清除表单(form缩写fm) 的数据
             $('#fm').form('clear');
-            url = 'save_user.php';
+            saveUrl = '/user/addUser';
+        }
+
+        /**
+         * 点击保存按钮时报错
+         */
+        function saveUser(){
+            $('#fm').form('submit',{
+                url: saveUrl,
+                onSubmit: function(){
+                    return $(this).form('validate');
+                },
+                success: function(result){
+                    var result = eval('('+result+')');
+                    if (result.errorMsg){
+                        $.messager.show({
+                            title: 'Error',
+                            msg: result.errorMsg
+                        });
+                    } else {
+                        $('#dlg').dialog('close');		// close the dialog
+                        $('#dg').datagrid('reload');	// reload the user data
+                    }
+                }
+            });
         }
     </script>
 </body>

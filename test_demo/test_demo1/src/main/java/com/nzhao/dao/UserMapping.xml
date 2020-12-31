@@ -13,4 +13,8 @@
         SELECT * FROM `user`;
     </select>
 
+    <select id="addUser" parameterType="user">
+        INSERT INTO `user`(`name`,`address`) VALUES(#{name},#{address});
+    </select>
+
 </mapper>

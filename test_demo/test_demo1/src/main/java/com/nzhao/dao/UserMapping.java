@@ -12,4 +12,6 @@ public interface UserMapping {
     List<String> getUserName();
 
     List<User> queryAll();
+
+    void addUser(User user);
 }

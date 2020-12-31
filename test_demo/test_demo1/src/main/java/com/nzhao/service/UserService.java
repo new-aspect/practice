@@ -15,4 +15,6 @@ public interface UserService {
     public List<String> getUserName();
 
     List<User> queryAll();
+
+    void addUser(User user);
 }
