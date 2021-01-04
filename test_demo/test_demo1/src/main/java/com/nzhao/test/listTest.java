@@ -24,5 +24,8 @@ public class listTest {
         for (int i = 0; i < li.size(); i++) {
             System.out.println(li.get(i));
         }
+        for (int i = 0; i < li.size(); i++) {
+            System.out.println(li.get(i));
+        }
     }
 }
