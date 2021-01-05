@@ -2,6 +2,9 @@ package com.nzhao.test;
 
 import com.alibaba.fastjson.JSON;
 
+/**
+ * @author 11507
+ */
 public class JsonTest {
     public static void main(String[] args) {
         String json = "[\n" +

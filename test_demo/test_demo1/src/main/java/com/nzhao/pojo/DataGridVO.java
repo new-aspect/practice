@@ -7,11 +7,16 @@ import java.util.List;
  * @author 11507
  */
 public class DataGridVO {
-    private int total = 0;
-    private List rows = new ArrayList(0);
+    private Integer total;
+    private List rows;
     private String errMsg;
 
+    public DataGridVO(){
+        rows = new ArrayList(0);
+    }
+
     public DataGridVO(String errMsg) {
+        rows = new ArrayList(0);
         this.errMsg = errMsg;
     }
 
@@ -50,6 +55,15 @@ public class DataGridVO {
 
     public void setErrMsg(String errMsg) {
         this.errMsg = errMsg;
+    }
+
+    @Override
+    public String toString() {
+        return "DataGridVO{" +
+                "total=" + total +
+                ", rows=" + rows +
+                ", errMsg='" + errMsg + '\'' +
+                '}';
     }
 }
 

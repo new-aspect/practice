@@ -2,7 +2,10 @@ package com.nzhao.test;
 
 import java.util.ArrayList;
 
-public class listTest {
+/**
+ * @author 11507
+ */
+public class ListTest {
     public static void main(String[] args) {
         ArrayList li = new ArrayList();
         li.add("c");
