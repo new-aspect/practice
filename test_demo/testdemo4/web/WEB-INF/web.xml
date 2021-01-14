@@ -14,4 +14,23 @@
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
+    <!--  测试ServletContext  -->
+    <servlet>
+        <servlet-name>servlet1</servlet-name>
+        <servlet-class>com.nzhao.servlet.Servlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet2</servlet-name>
+        <servlet-class>com.nzhao.servlet.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+
 </web-app>
