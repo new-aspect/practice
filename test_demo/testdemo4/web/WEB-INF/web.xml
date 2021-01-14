@@ -33,4 +33,17 @@
         <url-pattern>/servlet2</url-pattern>
     </servlet-mapping>
 
+    <!--  测试ServletContext获取对象  -->
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/test</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>testservlet</servlet-name>
+        <servlet-class>com.nzhao.servlet.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testservlet</servlet-name>
+        <url-pattern>/testservlet</url-pattern>
+    </servlet-mapping>
 </web-app>

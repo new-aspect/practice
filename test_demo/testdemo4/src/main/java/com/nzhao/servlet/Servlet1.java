@@ -18,9 +18,7 @@ public class Servlet1 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 解决乱码问题
-        resp.setContentType("text/html;charset=UTF-8");
-        String characterEncoding = req.getCharacterEncoding();
-        System.out.println("characterEncoding = " + characterEncoding);
+//        resp.setContentType("text/html;charset=UTF-8");
 //        resp.setCharacterEncoding("UTF-8");
 //        req.setCharacterEncoding("UTF-8");
 
