@@ -46,4 +46,23 @@
         <servlet-name>testservlet</servlet-name>
         <url-pattern>/testservlet</url-pattern>
     </servlet-mapping>
+    
+    <!--  测试forward  -->
+    <servlet>
+        <servlet-name>testservlet2</servlet-name>
+        <servlet-class>com.nzhao.servlet.TestServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testservlet2</servlet-name>
+        <url-pattern>/testservlet2</url-pattern>
+    </servlet-mapping>
+    <!--  测试forward  -->
+    <servlet>
+        <servlet-name>testservlet3</servlet-name>
+        <servlet-class>com.nzhao.servlet.TestServlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testservlet3</servlet-name>
+        <url-pattern>/testservlet3</url-pattern>
+    </servlet-mapping>
 </web-app>
