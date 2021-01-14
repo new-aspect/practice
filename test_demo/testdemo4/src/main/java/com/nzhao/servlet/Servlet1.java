@@ -17,11 +17,24 @@ public class Servlet1 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = "李四";
+        // 解决乱码问题
+        resp.setContentType("text/html;charset=UTF-8");
+        String characterEncoding = req.getCharacterEncoding();
+        System.out.println("characterEncoding = " + characterEncoding);
+//        resp.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-8");
+
+        // 没有乱码的代码
+        String name = new String("李四".getBytes("UTF-8"));
+
+        // 乱码的代码
+//        String name = "李四";
 
         // 将一个数据放入ServletContext
         ServletContext servletContext = req.getServletContext();
         servletContext.setAttribute("name",name);
+
+        System.out.println("Servlet1 name = " + name);
     }
 
     @Override
