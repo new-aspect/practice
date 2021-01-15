@@ -74,4 +74,13 @@
         <servlet-name>testservlet4</servlet-name>
         <url-pattern>/testservlet4</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testservlet5</servlet-name>
+        <servlet-class>com.nzhao.servlet.TestServlet5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testservlet5</servlet-name>
+        <url-pattern>/testservlet5</url-pattern>
+    </servlet-mapping>
 </web-app>
