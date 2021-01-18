@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  EasyUi相关  -->
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+    <script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../easyui/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <!--  展示所以数据的表格  -->
+    <table id="dg" title="My Users" class="easyui-datagrid" style="width:550px;height:250px"
+           url="/user/queryAll"
+           toolbar="#toolbar"
+           rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="id" width="50">id</th>
+                <th field="name" width="50">姓名</th>
+                <th field="address" width="50">地址</th>
+                <th field="birthday" width="50">出生日期</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
+    </div>
+
+
+    <!--  创建和编辑的对话框  -->
+    <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+         closed="true" buttons="#dlg-buttons">
+        <div class="ftitle">User Information</div>
+        <form id="fm" method="post">
+            <div class="fitem">
+                <label>姓名:</label>
+                <input name="name" class="easyui-validatebox" required="true">
+            </div>
+            <div class="fitem">
+                <label>地址:</label>
+                <input name="address" class="easyui-validatebox">
+            </div>
+            <div class="fitem">
+                <label>出生日期:</label>
+                <input name="birthday"  class="easyui-datebox">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+    </div>
+
+
+    <!--  同一处理JavaScript代码  -->
+    <script>
+        function newUser(){
+            $('#dlg').dialog('open').dialog('setTitle','New User');
+            $('#fm').form('clear');
+            url = '/user/addUser';
+        }
+
+        function editUser(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                $('#dlg').dialog('open').dialog('setTitle','Edit User');
+                $('#fm').form('load',row);
+                url = 'update_user.php?id='+row.id;
+            }
+        }
+
+        function saveUser(){
+            $('#fm').form('submit',{
+                url: url,
+                onSubmit: function(){
+                    return $(this).form('validate');
+                },
+                success: function(result){
+                    var result = eval('('+result+')');
+                    if (result.errorMsg){
+                        $.messager.show({
+                            title: 'Error',
+                            msg: result.errorMsg
+                        });
+                    } else {
+                        $('#dlg').dialog('close');		// close the dialog
+                        $('#dg').datagrid('reload');	// reload the user data
+                    }
+                }
+            });
+        }
+
+        function destroyUser(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+                    if (r){
+                        $.post('destroy_user.php',{id:row.id},function(result){
+                            if (result.success){
+                                $('#dg').datagrid('reload');	// reload the user data
+                            } else {
+                                $.messager.show({	// show error message
+                                    title: 'Error',
+                                    msg: result.errorMsg
+                                });
+                            }
+                        },'json');
+                    }
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

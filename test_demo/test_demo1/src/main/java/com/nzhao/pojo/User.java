@@ -24,6 +24,12 @@ public class User {
         this.address = address;
     }
 
+    public User(String name, String address, Date birthday) {
+        this.name = name;
+        this.address = address;
+        this.birthday = birthday;
+    }
+
     public User(int id, String name, String address, Date birthday) {
         this.id = id;
         this.name = name;
