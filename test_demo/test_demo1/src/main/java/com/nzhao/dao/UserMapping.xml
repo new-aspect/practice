@@ -12,9 +12,11 @@
     <select id="queryAll" resultType="user">
         SELECT * FROM `user`;
     </select>
-
+<!--
+Date birthday
+-->
     <select id="addUser" parameterType="user">
-        INSERT INTO `user`(`name`,`address`) VALUES(#{name},#{address});
+        INSERT INTO `user`(`name`,`address`,`birthday`) VALUES(#{name},#{address}, #{birthday});
     </select>
 
 </mapper>
