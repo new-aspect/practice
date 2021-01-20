@@ -3,6 +3,8 @@ package com.nzhao.pojo;
 import com.alibaba.fastjson.annotation.JSONField;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,7 +15,7 @@ public class User {
     private String name;
     private String address;
     @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
-    @JSONField(format="yyyy-MM-dd")//数据库导出页面时json格式化
+//    @JSONField(format="yyyy-MM-dd")//数据库导出页面时json格式化
     private Date birthday;
 
     public User() {
@@ -33,6 +35,17 @@ public class User {
         this.name = name;
         this.address = address;
         this.birthday = birthday;
+    }
+
+    public User(String name, String address, String birthday) {
+        this.name = name;
+        this.address = address;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.birthday = simpleDateFormat.parse(birthday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public User(int id, String name, String address, Date birthday) {
