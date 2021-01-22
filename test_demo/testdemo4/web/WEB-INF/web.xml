@@ -83,4 +83,13 @@
         <servlet-name>testservlet5</servlet-name>
         <url-pattern>/testservlet5</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>imageServlet</servlet-name>
+        <servlet-class>com.nzhao.servlet.ImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>imageServlet</servlet-name>
+        <url-pattern>/imageservlet</url-pattern>
+    </servlet-mapping>
 </web-app>
