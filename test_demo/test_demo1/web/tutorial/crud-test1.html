@@ -70,14 +70,14 @@
         saveUrl = '/user/addUser';
     }
 
-    function editUser(){
-        var row = $('#dg').datagrid('getSelected');
-        if (row){
-            $('#dlg').dialog('open').dialog('setTitle','Edit User');
-            $('#fm').form('load',row);
-            saveUrl = 'update_user.php?id='+row.id;
-        }
-    }
+    // function editUser(){
+    //     var row = $('#dg').datagrid('getSelected');
+    //     if (row){
+    //         $('#dlg').dialog('open').dialog('setTitle','Edit User');
+    //         $('#fm').form('load',row);
+    //         saveUrl = 'update_user.php?id='+row.id;
+    //     }
+    // }
 
     function saveUser(){
         $('#fm').form('submit',{
