@@ -5,14 +5,14 @@
          version="4.0">
 
     <!--  注册servlet，也就是servlet映射对应url  -->
-    <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>com.nzhao.servlet.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>hello</servlet-name>-->
+<!--        <servlet-class>com.nzhao.servlet.HelloServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>hello</servlet-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </servlet-mapping>-->
 
     <!--  测试ServletContext  -->
     <servlet>
@@ -93,6 +93,7 @@
         <url-pattern>/imageservlet</url-pattern>
     </servlet-mapping>
 
+    <!--  重定向的servlet  -->
     <servlet>
         <servlet-name>redirectServlet</servlet-name>
         <servlet-class>com.nzhao.servlet.RedirectServlet</servlet-class>
