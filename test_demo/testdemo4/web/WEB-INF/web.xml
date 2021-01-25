@@ -92,4 +92,13 @@
         <servlet-name>imageServlet</servlet-name>
         <url-pattern>/imageservlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>redirectServlet</servlet-name>
+        <servlet-class>com.nzhao.servlet.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirectServlet</servlet-name>
+        <url-pattern>/redirectServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
