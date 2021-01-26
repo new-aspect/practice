@@ -45,16 +45,17 @@
             <label>地址:</label>
             <input name="address" class="easyui-validatebox">
         </div>
-                    <div class="fitem">
-                        <label>出生日期:</label>
-<!--                        <input name="birthday"  class="easyui-datebox">-->
-                        <input name="birthday"  class="easyui-datetimebox">
-                    </div>
+        <div class="fitem">
+            <label>出生日期:</label>
+            <!--                        <input name="birthday"  class="easyui-datebox">-->
+            <input name="birthday" class="easyui-datetimebox">
+        </div>
     </form>
 </div>
 <div id="dlg-buttons">
     <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel"
+       onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
 </div>
 
 
@@ -64,30 +65,30 @@
     // 新建和编辑保存时共用这个url
     let saveUrl;
 
-    function newUser(){
-        $('#dlg').dialog('open').dialog('setTitle','New User');
+    function newUser() {
+        $('#dlg').dialog('open').dialog('setTitle', 'New User');
         $('#fm').form('clear');
         saveUrl = '/user/addUser';
     }
 
-    // function editUser(){
-    //     var row = $('#dg').datagrid('getSelected');
-    //     if (row){
-    //         $('#dlg').dialog('open').dialog('setTitle','Edit User');
-    //         $('#fm').form('load',row);
-    //         saveUrl = 'update_user.php?id='+row.id;
-    //     }
-    // }
+    function editUser(){
+        var row = $('#dg').datagrid('getSelected');
+        if (row){
+            $('#dlg').dialog('open').dialog('setTitle','Edit User');
+            $('#fm').form('load',row);
+            saveUrl = 'update_user.php?id='+row.id;
+        }
+    }
 
-    function saveUser(){
-        $('#fm').form('submit',{
+    function saveUser() {
+        $('#fm').form('submit', {
             url: saveUrl,
-            onSubmit: function(){
+            onSubmit: function () {
                 return $(this).form('validate');
             },
-            success: function(result){
-                var result = eval('('+result+')');
-                if (result.errorMsg){
+            success: function (result) {
+                var result = eval('(' + result + ')');
+                if (result.errorMsg) {
                     $.messager.show({
                         title: 'Error',
                         msg: result.errorMsg
@@ -100,13 +101,13 @@
         });
     }
 
-    function destroyUser(){
+    function destroyUser() {
         var row = $('#dg').datagrid('getSelected');
-        if (row){
-            $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
-                if (r){
-                    $.post('destroy_user.php',{id:row.id},function(result){
-                        if (result.success){
+        if (row) {
+            $.messager.confirm('Confirm', 'Are you sure you want to destroy this user?', function (r) {
+                if (r) {
+                    $.post('destroy_user.php', {id: row.id}, function (result) {
+                        if (result.success) {
                             $('#dg').datagrid('reload');	// reload the user data
                         } else {
                             $.messager.show({	// show error message
@@ -114,7 +115,7 @@
                                 msg: result.errorMsg
                             });
                         }
-                    },'json');
+                    }, 'json');
                 }
             });
         }
