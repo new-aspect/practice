@@ -37,7 +37,7 @@
      closed="true" buttons="#dlg-buttons">
     <div class="ftitle">User Information</div>
     <form id="fm" method="post">
-        <div class="fitem">
+        <div class="fitem" id="dialog-name-label">
             <label>姓名:</label>
             <input name="name" class="easyui-validatebox" required="true">
         </div>
@@ -64,6 +64,10 @@
     // 遇到一个问题，没有定义url而使用url，导致url为全局变量，出现错误，解决办法，定义saveUrl变量
     // 新建和编辑保存时共用这个url
     let saveUrl;
+
+    $().ready(function (){
+        $('#id').hide();
+    })
 
     function newUser() {
         $('#dlg').dialog('open').dialog('setTitle', 'New User');
