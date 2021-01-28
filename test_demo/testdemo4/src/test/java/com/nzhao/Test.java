@@ -16,6 +16,7 @@ public class Test {
         String str1 = null;
         String str2 = "";
         String str3 = "  ";
+        String str4 = new String();
 
         if (StringUtils.isNotBlank(str1)) {
             String str = str1.trim();
@@ -28,6 +29,10 @@ public class Test {
         if (StringUtils.isNotBlank(str3)) {
             String str = str3.trim();
             System.out.println("str3 = " + str);
+        }
+        if (StringUtils.isNotBlank(str4)) {
+            String str = str4.trim();
+            System.out.println("str4 = " + str);
         }
     }
 }
