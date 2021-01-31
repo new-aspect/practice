@@ -32,8 +32,10 @@ public class SessionDemo1 extends HttpServlet {
         System.out.println("-- session.getId() = " + id);
 
         if (session.isNew()) {
+            // 结果，浏览器第一次访问执行下面代码
             resp.getWriter().write("新的session创建成功");
         } else {
+            // 结果，浏览器不是第一次访问，执行下面代码
             resp.getWriter().write("这个session已经存在");
         }
 
