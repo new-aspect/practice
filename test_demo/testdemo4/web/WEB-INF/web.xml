@@ -102,4 +102,10 @@
         <servlet-name>redirectServlet</servlet-name>
         <url-pattern>/redirectServlet</url-pattern>
     </servlet-mapping>
+
+    <!--  session的注销时间  -->
+    <session-config>
+        <!--   设置session的失效时间为1分钟 ，注意这里是以分钟为单位    -->
+        <session-timeout>1</session-timeout>
+    </session-config>
 </web-app>
