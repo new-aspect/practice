@@ -23,7 +23,9 @@ public class LoginServlet extends HttpServlet {
         if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password) && "admin".equals(username.trim()) && "123456".equals(password.trim())) {
             System.out.println("-- 登录成功");
         } else {
-            req.getRequestDispatcher("../../fail.html").forward(req, resp);
+            System.out.println("-- req = " + req);
+            System.out.println("-- req.getRequestDispatcher(\"/fail.html\") = " + req.getRequestDispatcher("/fail.html"));
+            req.getRequestDispatcher("/fail.html").forward(req, resp);
         }
     }
 
