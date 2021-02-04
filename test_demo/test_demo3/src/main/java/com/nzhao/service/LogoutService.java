@@ -16,8 +16,9 @@ public class LogoutService extends HttpServlet {
         Object userSession = req.getSession().getAttribute("USER_SESSION");
         if (userSession != null){
             req.getSession().getAttribute("USER_SESSION");
-            resp.sendRedirect("/example/login.html");
         }
+        // 注销以后直接通过url访问页面就跳转
+        resp.sendRedirect("/example/login.html");
     }
 
     @Override
