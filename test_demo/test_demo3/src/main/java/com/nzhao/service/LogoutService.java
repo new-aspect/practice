@@ -14,11 +14,12 @@ public class LogoutService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Object userSession = req.getSession().getAttribute("USER_SESSION");
+        String contextPath = req.getContextPath();
         if (userSession != null){
-            req.getSession().getAttribute("USER_SESSION");
+            req.getSession().removeAttribute("USER_SESSION");
         }
         // 注销以后直接通过url访问页面就跳转
-        resp.sendRedirect("/example/login.html");
+        resp.sendRedirect(contextPath + "/login.html");
     }
 
     @Override
