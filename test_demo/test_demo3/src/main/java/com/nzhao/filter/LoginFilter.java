@@ -20,7 +20,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         if(request.getSession().getAttribute("USER_SESSION") == null){
 //            response.sendRedirect("/example/login.html");
-            response.sendRedirect("/example/error.html");
+            response.sendRedirect("/example/login.html");
         }
 
         // 让过滤器继续执行下去
