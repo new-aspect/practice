@@ -19,7 +19,8 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         String contextPath = request.getContextPath();
-        if(request.getSession().getAttribute("USER_SESSION") == null){
+        String userSession = "USER_SESSION";
+        if(request.getSession().getAttribute(userSession) == null){
             response.sendRedirect(contextPath + "/login.html");
         }
 
