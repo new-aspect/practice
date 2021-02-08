@@ -24,15 +24,13 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         String username = (String) request.getAttribute("username");
-        if (StringUtils.isNotBlank(username)) {
-            chain.doFilter(request, response);
-        } else {
+//        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        if (StringUtils.isBlank(username)) {
             request.getRequestDispatcher("/login.html").forward(request, response);
-            // 坑，没有添加下面这句，导致过滤器不继续向下执行
-            chain.doFilter(request, response);
         }
 
-
+        // 坑，没有添加下面这句，导致过滤器不继续向下执行
+        chain.doFilter(request, response);
     }
 
     @Override
