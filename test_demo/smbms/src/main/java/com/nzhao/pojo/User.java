@@ -73,6 +73,16 @@ public class User {
      */
     private Date modifyDate;
 
+    /**
+     * 获取当前年龄
+     * @return
+     */
+    public Integer getAge(){
+        Date date  = new Date();
+        Integer age = date.getYear() - birthday.getYear();
+        return age;
+    }
+
     public Integer getId() {
         return id;
     }
