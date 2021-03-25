@@ -67,6 +67,11 @@ public class Provider {
      */
     private Integer modifyBy;
 
+    /**
+     * 供应商名称，通过联表查询查出来
+     */
+    private String providerName;
+
     public Integer getId() {
         return id;
     }
@@ -163,6 +168,14 @@ public class Provider {
         this.modifyBy = modifyBy;
     }
 
+    public String getProviderName() {
+        return providerName;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
     @Override
     public String toString() {
         return "Provider{" +
@@ -178,6 +191,7 @@ public class Provider {
                 ", datetime=" + datetime +
                 ", modifyDate=" + modifyDate +
                 ", modifyBy=" + modifyBy +
+                ", providerName='" + providerName + '\'' +
                 '}';
     }
 }
