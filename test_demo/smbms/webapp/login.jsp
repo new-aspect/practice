@@ -11,7 +11,30 @@
     <title>超市管理系统</title>
     <link type="text/css" rel="stylesheet"  href="css/style.css">
 </head>
-<body>
+<!-- body的class="login_bg"调用css/style.css文件的选择器，该选择器调用一张图片作为背景 -->
+<body class="login_bg">
+    <!-- section的class="loginBox"调用css/style.css文件的选择器，该选择器调用一张图片作为背景 -->
+    <section class="loginBox">
+        <header class="loginHeader">
+            <h3>超市管理系统</h3>
+        </header>
+    </section>
+    <section class="loginCont">
+        <form class="loginForm" action="login.do" name="actionForm" id="actionForm" method="post">
+            <div class="inputbox">
+                <label for="userCode">用户名：</label>
+                <input type="text" id="userCode" name="username"/>
+            </div>
+            <div class="inputbox">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="subBtn">
+                <input type="submit" name="提交">
+                <input type="reset" name="重置">
+            </div>
+        </form>
+    </section>
 
 </body>
 </html>
