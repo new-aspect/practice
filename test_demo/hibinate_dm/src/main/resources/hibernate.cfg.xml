@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 这个属性使 Hibernate 应用为被选择的数据库生成适当的 SQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.DmDialect</property>
+
+        <!-- JDBC 驱动程序类 -->
+        <property name="hibernate.connection.driver_class">dm.jdbc.driver.DmDriver</property>
+
+        <!-- Assume test is the database name -->
+        <!-- 数据库实例的 JDBC URL -->
+        <property name="hibernate.connection.url">jdbc:dm://localhost:5236</property>
+
+        <!-- 数据库用户名 -->
+        <property name="hibernate.connection.username">SYSDBA</property>
+
+        <!-- 数据库密码 -->
+        <property name="hibernate.connection.password">123456789</property>
+
+        <!-- 是否显示sql -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- 是否将sql格式化 -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- 是否自动在数据库中生成表 -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 事物自动提交 -->
+        <property name="hibernate.connection.autocommit">true</property>
+
+        <!-- 针对大字段处理 -->
+        <property name="hibernate.connection.SetBigStringTryClob">true</property>
+
+        <!-- List of XML mapping files -->
+        <!-- 下面是映射的类 -->
+        <mapping resource="com/pojo/BigData.hbm.xml"/>
+        <mapping resource="com/pojo/ProductCategory.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
