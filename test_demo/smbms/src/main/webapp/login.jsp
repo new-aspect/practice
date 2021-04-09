@@ -20,7 +20,8 @@
         </header>
     </section>
     <section class="loginCont">
-        <form class="loginForm" action="login.do" name="actionForm" id="actionForm" method="post">
+        <%--   这里先写成/login.do，看来这样是错误的，只能写成这样了      --%>
+        <form class="loginForm" action="${pageContext.request.contextPath}/login.do" name="actionForm" id="actionForm" method="post">
             <div class="inputbox">
                 <label for="userCode">用户名：</label>
                 <input type="text" id="userCode" name="username"/>
