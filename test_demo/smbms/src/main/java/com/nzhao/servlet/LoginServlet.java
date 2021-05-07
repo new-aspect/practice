@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 这里应该跳转到控制台界面，控制台界面可以推出登录
         resp.getWriter().write("username = " + req.getParameter("username"));
     }
 

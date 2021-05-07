@@ -47,4 +47,16 @@ public class UserDaoImpl implements UserDao {
     public List<User> findUser() {
         return null;
     }
+
+    @Override
+    public User getLoginUser(Connection connection ,String userCode, String password) {
+        ResultSet resultSet = null;
+        String sql = "SELECT * FROM SMBMS_USER WHERE userCode = ? AND userPassword = ? ";
+        Object[] params = {userCode, password};
+        PreparedStatement preparedStatement = null;
+//        try{
+//            BaseDao.excute(connection,params,resultSet,preparedStatement);
+//        }
+        return null;
+    }
 }

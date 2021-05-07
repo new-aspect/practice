@@ -22,6 +22,7 @@ public interface UserDao {
      */
     public List<User> findUser();
 
+    public User getLoginUser(Connection connection ,String userCode, String password);
 
 
 }
