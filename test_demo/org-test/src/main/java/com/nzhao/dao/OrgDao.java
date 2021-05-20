@@ -18,7 +18,7 @@ public class OrgDao {
         Map<Integer, Set<Integer>> map = new HashMap<Integer, Set<Integer>>();
         String sql = "SELECT ou.OrgId, ou.UserId FROM t_user u JOIN t_orguser ou ON u.id = ou.UserId WHERE u.Field1='1'";
         try {
-            resultSet = BaseDao.excute(BaseDao.getConnection(), sql, resultSet, preparedStatement);
+            resultSet = BaseDao.execute(BaseDao.getConnection(), sql, resultSet, preparedStatement);
             while (resultSet !=null && resultSet.next()) {
                 int orgId = resultSet.getInt("OrgId");
                 int userId = resultSet.getInt("UserId");
@@ -31,5 +31,42 @@ public class OrgDao {
         }
         return map;
     }
+
+    public Integer getSiteIdWithOrgId(Integer orgId){
+        String sql = "SELECT siteId FROM T_SITEAUTH_ORG WHERE orgId = ? ";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Integer siteId = null;
+        Object[] params = {orgId};
+        try{
+            resultSet = BaseDao.execute(BaseDao.getConnection(),sql,params,resultSet,preparedStatement);
+            while (resultSet !=null && resultSet.next()) {
+                siteId = resultSet.getInt("siteid");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return siteId;
+    }
+
+    public String getOrgPath(Integer orgId){
+        String sql = "SELECT path FROM t_org WHERE id = ? ";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String path = null;
+        try{
+            resultSet = BaseDao.execute(BaseDao.getConnection(),sql,new Object[]{orgId},resultSet,preparedStatement);
+            while (resultSet !=null && resultSet.next()) {
+                path = resultSet.getString("path");
+                // 默认只能得到一个值
+                break;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return path;
+    }
+
+
 
 }

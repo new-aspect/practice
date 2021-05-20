@@ -48,7 +48,7 @@ public class BaseDao {
     /**
      * 编辑查询公共类
      */
-    public static ResultSet excute(Connection connection, String sql, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
+    public static ResultSet execute(Connection connection, String sql, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
         // 预编译的SQL, 在后面直接执行就可以了, preparedStatement和statement的区别是preparedStatement可以防止sql注入，效率更高
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery(sql);
@@ -58,7 +58,7 @@ public class BaseDao {
     /**
      * 编辑查询公共类
      */
-    public static ResultSet excute(Connection connection, String sql, Object[] params, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
+    public static ResultSet execute(Connection connection, String sql, Object[] params, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
         // 预编译的SQL, 在后面直接执行就可以了, preparedStatement和statement的区别是preparedStatement可以防止sql注入，效率更高
         preparedStatement = connection.prepareStatement(sql);
 
@@ -67,7 +67,7 @@ public class BaseDao {
             preparedStatement.setObject(i+1, params[i]);
         }
 
-        resultSet = preparedStatement.executeQuery(sql);
+        resultSet = preparedStatement.executeQuery();
         return resultSet;
     }
 
