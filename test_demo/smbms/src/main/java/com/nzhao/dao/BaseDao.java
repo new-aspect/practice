@@ -58,8 +58,8 @@ public class BaseDao {
             // setObject, 占位符从1开始，但是我们的数组是从0开始
             preparedStatement.setObject(i+1, params[i]);
         }
-
-        resultSet = preparedStatement.executeQuery(sql);
+        // 注意这里的bug，写preparedStatement.executeQuery(sql)是报错的，因为多传了一个参数
+        resultSet = preparedStatement.executeQuery();
         return resultSet;
     }
 
