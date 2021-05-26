@@ -9,17 +9,15 @@
 </head>
 <body>
 <script>
-    var value = 3;
-
-    function fun1(value) {
-        return value > 15 ;
-    }
-
-    function fun2(value) {
-        return value > 140 ;
-    }
-
+    $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+    });
 </script>
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
 
 </body>
 </html>
