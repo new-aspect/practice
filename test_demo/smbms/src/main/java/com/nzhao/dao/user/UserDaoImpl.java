@@ -16,29 +16,37 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getLoginUser(Connection connection, String userCode) {
         ResultSet resultSet = null;
-        String sql = "SELECT * FROM `smbms_user` WHERE userCode = ? ";
-        Object[] params = {userCode};
         PreparedStatement preparedStatement = null;
-        try {
-            BaseDao.excute(connection, sql, params, resultSet, preparedStatement);
-            if (resultSet.next()) {
-                User user = new User();
-                user.setId(resultSet.getInt("id"));
-                user.setUserCode(resultSet.getString("userCode"));
-                user.setUserName(resultSet.getString("userName"));
-                user.setUserPassword(resultSet.getString("userPassword"));
-                user.setGender(resultSet.getInt("gender"));
-                user.setBirthday(resultSet.getDate("birthday"));
-                user.setPhone(resultSet.getString("phone"));
-                user.setAddress(resultSet.getString("address"));
-                user.setUserRole(resultSet.getInt("userRole"));
-                user.setCreateBy(resultSet.getInt("createBy"));
-                user.setCreationDate(resultSet.getDate("creationDate"));
-                user.setModifyBy(resultSet.getInt("modifyBy"));
-                user.setModifyDate(resultSet.getDate("Date"));
+        // 如果connection不为空，则继续执行
+        if (connection != null) {
+            // 用问号保证安全，让sql预编译
+            String sql = "SELECT * FROM `smbms_user` WHERE userCode = ? ";
+            // 执行sql需要的参数
+            Object[] params = {userCode};
+
+            try {
+                resultSet = BaseDao.excute(connection, sql, params, resultSet, preparedStatement);
+                // 获取的结果集遍历使用
+                if (resultSet.next()) {
+                    User user = new User();
+                    user.setId(resultSet.getInt("id"));
+                    user.setUserCode(resultSet.getString("userCode"));
+                    user.setUserName(resultSet.getString("userName"));
+                    user.setUserPassword(resultSet.getString("userPassword"));
+                    user.setGender(resultSet.getInt("gender"));
+                    user.setBirthday(resultSet.getDate("birthday"));
+                    user.setPhone(resultSet.getString("phone"));
+                    user.setAddress(resultSet.getString("address"));
+                    user.setUserRole(resultSet.getInt("userRole"));
+                    user.setCreateBy(resultSet.getInt("createBy"));
+                    user.setCreationDate(resultSet.getDate("creationDate"));
+                    user.setModifyBy(resultSet.getInt("modifyBy"));
+                    user.setModifyDate(resultSet.getDate("Date"));
+                }
+                BaseDao.release(null,preparedStatement,resultSet);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
         return null;
     }
