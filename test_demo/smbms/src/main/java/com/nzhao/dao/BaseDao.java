@@ -19,7 +19,7 @@ public class BaseDao {
     // 静态代码块，类初始化的时候就加载
     static{
         // 通过类加载器读取对应资源
-        InputStream inStream = BaseDao.class.getResourceAsStream("db.properties");
+        InputStream inStream = BaseDao.class.getClassLoader().getResourceAsStream("db.properties");
         Properties properties = new Properties();
         try {
             properties.load(inStream);

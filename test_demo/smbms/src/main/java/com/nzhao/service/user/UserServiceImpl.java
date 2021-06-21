@@ -4,6 +4,7 @@ import com.nzhao.dao.BaseDao;
 import com.nzhao.dao.user.UserDao;
 import com.nzhao.dao.user.UserDaoImpl;
 import com.nzhao.pojo.User;
+import org.junit.Test;
 
 import java.sql.Connection;
 
@@ -11,7 +12,7 @@ public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
 
-    public void UserServiceImpl(){
+    public UserServiceImpl() {
         userDao = new UserDaoImpl();
     }
 
@@ -22,11 +23,21 @@ public class UserServiceImpl implements UserService {
 
         try {
             connection = BaseDao.getConnection();
-            userDao.getLoginUser(connection,userCode, password);
-        } catch (Exception e){
-
+            // 从业务层调用dao层
+            user = userDao.getLoginUser(connection, userCode, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.release(connection, null, null);
         }
+        return user;
+    }
 
-        return null;
+    // 使用单元测试
+    @Test
+    public void test(){
+        UserService userService = new UserServiceImpl();
+        User user = userService.login("admin", "1234567");
+        System.out.println(user);
     }
 }
