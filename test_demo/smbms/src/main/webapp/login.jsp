@@ -28,7 +28,7 @@
             </div>
             <div class="inputbox">
                 <label for="password">密码：</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" readonly onfocus="this.removeAttribute('readonly');" name="password">
             </div>
             <div class="subBtn">
                 <input type="submit" name="提交">
