@@ -23,7 +23,7 @@
     <!--  登录  -->
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>com.nzhao.servlet.LoginServlet</servlet-class>
+        <servlet-class>com.nzhao.servlet.user.LoginServlet</servlet-class>
     </servlet>
     <!--  也许这个错误是配置web.xml中/login.do 而在login.html中写login.do  -->
     <servlet-mapping>

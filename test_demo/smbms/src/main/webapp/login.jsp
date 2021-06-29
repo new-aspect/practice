@@ -22,13 +22,14 @@
     <section class="loginCont">
         <%--   这里先写成/login.do，看来这样是错误的，只能写成这样了      --%>
         <form class="loginForm" action="${pageContext.request.contextPath}/login.do" name="actionForm" id="actionForm" method="post">
+            <div class="info">${error}</div>
             <div class="inputbox">
                 <label for="userCode">用户名：</label>
-                <input type="text" id="userCode" name="username"/>
+                <input type="text" id="userCode" name="userCode"/>
             </div>
             <div class="inputbox">
-                <label for="password">密码：</label>
-                <input type="password" id="password" readonly onfocus="this.removeAttribute('readonly');" name="password">
+                <label for="userPassword">密码：</label>
+                <input type="password" id="userPassword" name="userPassword">
             </div>
             <div class="subBtn">
                 <input type="submit" name="提交">

@@ -7,7 +7,8 @@ import com.nzhao.pojo.User;
  */
 public interface UserService {
     /**
-     * @return 判断
+     * 根据用户名和密码查询用户是否存在
+     * @return 用户
      */
     public User login(String username, String password);
 }

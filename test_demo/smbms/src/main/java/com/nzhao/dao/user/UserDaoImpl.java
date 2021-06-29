@@ -62,11 +62,12 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM SMBMS_USER WHERE userCode = ? AND userPassword = ? ";
         Object[] params = {userCode, password};
         PreparedStatement preparedStatement = null;
-        User user = new User();
+        User user = null;
         try{
             resultSet = BaseDao.excute(connection, sql, params, resultSet, preparedStatement);
             // 处理resultSet
             if (resultSet.next()) {
+                user = new User();
                 user.setId(resultSet.getInt("id"));
                 user.setUserCode(resultSet.getString("userCode"));
                 user.setUserName(resultSet.getString("userName"));
