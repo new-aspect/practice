@@ -31,4 +31,14 @@
         <!--    我把这里的/删除了    -->
         <url-pattern>/login.do</url-pattern>
     </servlet-mapping>
+    
+    <!--  注销用户  -->
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.nzhao.servlet.user.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/jsp/logout.do</url-pattern>
+    </servlet-mapping>
 </web-app >
