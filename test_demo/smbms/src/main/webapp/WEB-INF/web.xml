@@ -41,4 +41,14 @@
         <servlet-name>logout</servlet-name>
         <url-pattern>/jsp/logout.do</url-pattern>
     </servlet-mapping>
+
+    <!--  判断是否登录  -->
+    <filter>
+        <filter-name>sysFilter</filter-name>
+        <filter-class>com.nzhao.filter.SysFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sysFilter</filter-name>
+        <url-pattern>/jsp/*</url-pattern>
+    </filter-mapping>
 </web-app >
