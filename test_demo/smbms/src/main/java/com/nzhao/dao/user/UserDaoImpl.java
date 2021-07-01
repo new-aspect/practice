@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
             Object[] params = {userCode};
 
             try {
-                resultSet = BaseDao.excute(connection, sql, params, resultSet, preparedStatement);
+                resultSet = BaseDao.execute(connection, sql, params, resultSet, preparedStatement);
                 // 获取的结果集遍历使用
                 if (resultSet.next()) {
                     User user = new User();
@@ -64,7 +64,7 @@ public class UserDaoImpl implements UserDao {
         PreparedStatement preparedStatement = null;
         User user = null;
         try{
-            resultSet = BaseDao.excute(connection, sql, params, resultSet, preparedStatement);
+            resultSet = BaseDao.execute(connection, sql, params, resultSet, preparedStatement);
             // 处理resultSet
             if (resultSet.next()) {
                 user = new User();
@@ -80,5 +80,21 @@ public class UserDaoImpl implements UserDao {
             BaseDao.release(connection,preparedStatement,resultSet);
         }
         return null;
+    }
+
+    @Override
+    public int updatePwd(Connection connection, Integer id, String password) {
+        String sql = "UPDATE smbms_user SET userPassword = ? WHERE id = ? ";
+        Object[] params = {password,id};
+        PreparedStatement preparedStatement = null;
+        int execute = 0;
+        try {
+            execute = BaseDao.execute(connection, sql, params, preparedStatement);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            BaseDao.release(connection,preparedStatement,null);
+        }
+        return execute;
     }
 }

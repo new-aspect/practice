@@ -24,5 +24,8 @@ public interface UserDao {
 
     public User getLoginUser(Connection connection ,String userCode, String password);
 
-
+    /**
+     * 修改密码
+     */
+    public int updatePwd(Connection connection, Integer id, String password);
 }

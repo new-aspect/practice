@@ -51,4 +51,14 @@
         <filter-name>sysFilter</filter-name>
         <url-pattern>/jsp/*</url-pattern>
     </filter-mapping>
+
+    <!--  修改用户密码  -->
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <servlet-class>com.nzhao.servlet.user.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/jsp/user.do</url-pattern>
+    </servlet-mapping>
 </web-app >

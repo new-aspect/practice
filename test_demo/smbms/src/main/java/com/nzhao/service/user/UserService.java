@@ -11,4 +11,6 @@ public interface UserService {
      * @return 用户
      */
     public User login(String username, String password);
+
+    public boolean updatePwd(Integer id, String password);
 }

@@ -50,7 +50,7 @@ public class BaseDao {
     /**
      * 编辑查询公共类
      */
-    public static ResultSet excute(Connection connection, String sql, Object[] params, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
+    public static ResultSet execute(Connection connection, String sql, Object[] params, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
         // 预编译的SQL, 在后面直接执行就可以了, preparedStatement和statement的区别是preparedStatement可以防止sql注入，效率更高
         preparedStatement = connection.prepareStatement(sql);
 
@@ -72,7 +72,7 @@ public class BaseDao {
 
         for (int i = 0; i < params.length; i++) {
             // setObject, 占位符从1开始，但是我们的数组是从0开始
-            preparedStatement.setObject(i+1, params);
+            preparedStatement.setObject(i+1, params[i]);
         }
 
         int updateRows = preparedStatement.executeUpdate();

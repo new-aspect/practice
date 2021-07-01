@@ -33,6 +33,17 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public boolean updatePwd(Integer id, String password) {
+        boolean flag = false;
+        Connection connection = BaseDao.getConnection();
+        int result = userDao.updatePwd(connection, id, password);
+        if(result > 0){
+            flag = true;
+        }
+        return flag;
+    }
+
     // 使用单元测试
     @Test
     public void test(){
