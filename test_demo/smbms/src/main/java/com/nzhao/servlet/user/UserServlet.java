@@ -18,6 +18,19 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String method = req.getParameter("method");
+        if(!StringUtils.isNullOrEmpty(method) && method.equals("savepwd")){
+            this.updatePwd(req, resp);
+        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
+    }
+
+    public void updatePwd(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         // 从session中获取user
         User user = (User) req.getSession().getAttribute(Constants.User_Session);
         String newpassword = (String) req.getParameter("newpassword");
@@ -36,10 +49,5 @@ public class UserServlet extends HttpServlet {
         }
 
         req.getRequestDispatcher("pwdmodify.jsp").forward(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req, resp);
     }
 }
