@@ -61,4 +61,9 @@
         <servlet-name>user</servlet-name>
         <url-pattern>/jsp/user.do</url-pattern>
     </servlet-mapping>
+
+    <!--  默认session过期时间，设置为30分钟后session过期  -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app >
