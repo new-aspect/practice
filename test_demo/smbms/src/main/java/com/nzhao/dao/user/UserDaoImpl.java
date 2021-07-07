@@ -59,7 +59,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getLoginUser(Connection connection ,String userCode, String password) {
         ResultSet resultSet = null;
-        String sql = "SELECT * FROM SMBMS_USER WHERE userCode = ? AND userPassword = ? ";
+        String sql = "SELECT * FROM smbms_user WHERE usercode = ? AND userpassword = ? ";
         Object[] params = {userCode, password};
         PreparedStatement preparedStatement = null;
         User user = null;
@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int updatePwd(Connection connection, Integer id, String password) {
-        String sql = "UPDATE smbms_user SET userPassword = ? WHERE id = ? ";
+        String sql = "UPDATE smbms_user SET userpassword = ? WHERE id = ? ";
         Object[] params = {password,id};
         PreparedStatement preparedStatement = null;
         int execute = 0;

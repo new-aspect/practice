@@ -15,5 +15,7 @@ public class test6 {
             String value = map.get(key);
             System.out.println(key+"  "+value);
         }
+
+        System.out.println("35 % 7 = "+ 35%7);
     }
 }
