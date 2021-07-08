@@ -2,6 +2,7 @@ package com.nzhao.dao.user;
 
 import com.nzhao.dao.BaseDao;
 import com.nzhao.pojo.User;
+import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,7 +44,7 @@ public class UserDaoImpl implements UserDao {
                     user.setModifyBy(resultSet.getInt("modifyBy"));
                     user.setModifyDate(resultSet.getDate("Date"));
                 }
-                BaseDao.release(null,preparedStatement,resultSet);
+                BaseDao.release(null, preparedStatement, resultSet);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -57,13 +58,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getLoginUser(Connection connection ,String userCode, String password) {
+    public User getLoginUser(Connection connection, String userCode, String password) {
         ResultSet resultSet = null;
         String sql = "SELECT * FROM smbms_user WHERE usercode = ? AND userpassword = ? ";
         Object[] params = {userCode, password};
         PreparedStatement preparedStatement = null;
         User user = null;
-        try{
+        try {
             resultSet = BaseDao.execute(connection, sql, params, resultSet, preparedStatement);
             // 处理resultSet
             if (resultSet.next()) {
@@ -77,7 +78,7 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            BaseDao.release(connection,preparedStatement,resultSet);
+            BaseDao.release(connection, preparedStatement, resultSet);
         }
         return null;
     }
@@ -85,7 +86,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int updatePwd(Connection connection, Integer id, String password) {
         String sql = "UPDATE smbms_user SET userpassword = ? WHERE id = ? ";
-        Object[] params = {password,id};
+        Object[] params = {password, id};
         PreparedStatement preparedStatement = null;
         int execute = 0;
         try {
@@ -93,8 +94,35 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            BaseDao.release(connection,preparedStatement,null);
+            BaseDao.release(connection, preparedStatement, null);
         }
         return execute;
+    }
+
+    @Override
+    public int getUserCount(Connection connection, String userName, String roleName) {
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        int count = 0;
+        // 使用COUNT(1)的查询效率比COUNT(*)快很多倍
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT COUNT(1) FROM smbms_user u LEFT JOIN smbms_role r ON u.userRole = r.id WHERE 1=1");
+        if (StringUtils.isNotBlank(userName)) {
+            sql.append(" AND u.userName LIKE  '%" + userName + "%' ");
+        }
+        if (StringUtils.isNotBlank(roleName)) {
+            sql.append(" AND r.roleName='" + roleName + "'");
+        }
+        try {
+            resultSet = BaseDao.execute(connection, sql.toString(), null, resultSet, preparedStatement);
+            if (resultSet != null && resultSet.next()) {
+                count = resultSet.getInt("COUNT(1)");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            BaseDao.release(connection, preparedStatement, resultSet);
+        }
+        return count;
     }
 }

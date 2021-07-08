@@ -51,4 +51,12 @@ public class UserServiceImpl implements UserService {
         User user = userService.login("admin", "1234567");
         System.out.println(user);
     }
+
+    @Test
+    public void test2(){
+        UserDao userDao = new UserDaoImpl();
+        int userCount = userDao.getUserCount(BaseDao.getConnection(), " ", "");
+        System.out.println(userCount);
+    }
+
 }

@@ -28,4 +28,9 @@ public interface UserDao {
      * 修改密码
      */
     public int updatePwd(Connection connection, Integer id, String password);
+
+    /**
+     * 根据用户名、用户角色查询总用户数
+     */
+    public int getUserCount(Connection connection,String userName, String roleName);
 }

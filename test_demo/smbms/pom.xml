@@ -54,6 +54,12 @@
             <version>2.8.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
     </dependencies>
 
     <!--在build中配置resources,来防止我们资源导出失败的问题-->
