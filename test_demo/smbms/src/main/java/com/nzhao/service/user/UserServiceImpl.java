@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     @Test
     public void test2(){
         UserDao userDao = new UserDaoImpl();
-        int userCount = userDao.getUserCount(BaseDao.getConnection(), " ", "");
+        int userCount = userDao.getUserCount(BaseDao.getConnection(), "系统管理员", "");
         System.out.println(userCount);
     }
 

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -104,17 +105,25 @@ public class UserDaoImpl implements UserDao {
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
         int count = 0;
+        // 使用ArrayList存放参数
+        ArrayList<Object> list = new ArrayList<>();
+        Object[] parems = null;
         // 使用COUNT(1)的查询效率比COUNT(*)快很多倍
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT COUNT(1) FROM smbms_user u LEFT JOIN smbms_role r ON u.userRole = r.id WHERE 1=1");
         if (StringUtils.isNotBlank(userName)) {
-            sql.append(" AND u.userName LIKE  '%" + userName + "%' ");
+            sql.append(" AND u.userName LIKE  ? ");
+            list.add("%" + userName + "%");
         }
         if (StringUtils.isNotBlank(roleName)) {
-            sql.append(" AND r.roleName='" + roleName + "'");
+            sql.append(" AND r.roleName= ? ");
+            list.add(roleName);
         }
         try {
-            resultSet = BaseDao.execute(connection, sql.toString(), null, resultSet, preparedStatement);
+            if (list.size() > 0) {
+                parems = list.toArray();
+            }
+            resultSet = BaseDao.execute(connection, sql.toString(), parems, resultSet, preparedStatement);
             if (resultSet != null && resultSet.next()) {
                 count = resultSet.getInt("COUNT(1)");
             }
