@@ -13,9 +13,19 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
-    <!--  目的是为了在这几个配置类中相互调用参数  -->
-    <import resource="classpath:spring-dao.xml"/>
+    <!--  1. 扫描service的包  -->
+    <context:component-scan base-package="com.nzhao.service"/>
 
-    <import resource="classpath:spring-service.xml"/>
+    <!--  2. 我们将所有的业务类注入spring，通过xml或注解实现   -->
+    <bean id="bookService" class="com.nzhao.service.impl.BookServiceImpl">
+        <property name="bookMapping" ref="bookMapping"/>
+    </bean>
+
+    <!--  3. 声明式事物配置  -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--  4. aop事物支持  -->
 
 </beans>
