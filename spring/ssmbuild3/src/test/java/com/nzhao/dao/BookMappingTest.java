@@ -71,7 +71,7 @@ public class BookMappingTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         BookService bookService = (BookService)context.getBean("bookService");
         // 操作BookService对象
-        int i = bookService.deleteBookById(6);
+        int i = bookService.deleteBookById(8);
         System.out.println(i);
     }
 }

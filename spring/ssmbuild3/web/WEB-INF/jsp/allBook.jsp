@@ -8,6 +8,9 @@
     <!-- 显示标题 -->
     <h1>书籍列表-显示所有书籍</h1>
 
+    <!--  添加书籍的连接  -->
+    <a href="${pageContext.request.contextPath}/book/toAddBookPage">添加书籍</a>
+
     <table>
         <thead>
         <tr>
