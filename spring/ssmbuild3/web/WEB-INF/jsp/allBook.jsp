@@ -29,6 +29,7 @@
                     <th>${book.bookName}</th>
                     <th>${book.bookCounts}</th>
                     <th>${book.detail}</th>
+                    <th><a href="${pageContext.request.contextPath}/book/toUpdateBookPage?bookID=${book.bookID}">编辑</a> </th>
                 </tr>
             </c:forEach>
         </tbody>

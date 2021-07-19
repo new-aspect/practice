@@ -44,4 +44,17 @@ public class BookController {
         bookService.addBook(books);
         return "redirect:/book/allBook";
     }
+
+    @RequestMapping("/toUpdateBookPage")
+    public String toUpdateBookPage(int bookID, Model model){
+        Books books = bookService.queryBookById(bookID);
+        model.addAttribute("books",books);
+        return "editBook";
+    }
+
+    @RequestMapping("/editBook")
+    public String editBook(Books books){
+        bookService.updateBook(books);
+        return "redirect:/book/allBook";
+    }
 }
