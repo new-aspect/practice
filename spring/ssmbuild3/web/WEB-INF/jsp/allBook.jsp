@@ -30,6 +30,7 @@
                     <th>${book.bookCounts}</th>
                     <th>${book.detail}</th>
                     <th><a href="${pageContext.request.contextPath}/book/toUpdateBookPage?bookID=${book.bookID}">编辑</a> </th>
+                    <th><a href="${pageContext.request.contextPath}/book/delectBook?bookID=${book.bookID}">删除</a> </th>
                 </tr>
             </c:forEach>
         </tbody>

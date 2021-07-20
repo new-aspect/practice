@@ -57,4 +57,10 @@ public class BookController {
         bookService.updateBook(books);
         return "redirect:/book/allBook";
     }
+
+    @RequestMapping("/delectBook")
+    public String delectBook(int bookID){
+        int i = bookService.deleteBookById(bookID);
+        return "redirect:/book/allBook";
+    }
 }
