@@ -2,6 +2,7 @@ package com.nzhao.controller;
 
 import com.nzhao.pojo.Books;
 import com.nzhao.service.BookService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,6 +67,10 @@ public class BookController {
 
     @RequestMapping("/search")
     public String search(Model model, String search){
+        // 如果搜索内容为空或者是空格，则返回全部数据
+        if(StringUtils.isBlank(search)){
+            return "redirect:/book/allBook";
+        }
         List<Books> books = bookService.searchBook(search);
         model.addAttribute("list",books);
         return "allBook";
