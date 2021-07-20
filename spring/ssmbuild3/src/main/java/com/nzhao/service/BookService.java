@@ -22,4 +22,7 @@ public interface BookService {
 
     // 查询全部的书
     List<Books> queryAllBook();
+
+    // 按照条件搜索
+    List<Books> searchBook(String search);
 }

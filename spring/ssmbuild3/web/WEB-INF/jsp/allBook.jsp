@@ -10,7 +10,10 @@
 
     <!--  添加书籍的连接  -->
     <a href="${pageContext.request.contextPath}/book/toAddBookPage">添加书籍</a>
-
+    <form action="${pageContext.request.contextPath}/book/search">
+        <input type="text" id="search" name="search" placeholder="请输入要查询的内容"/>
+        <button type="submit">搜索</button>
+    </form>
     <table>
         <thead>
         <tr>

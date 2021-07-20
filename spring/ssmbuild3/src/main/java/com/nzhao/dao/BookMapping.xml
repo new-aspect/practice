@@ -26,4 +26,7 @@
         SELECT * FROM `books`;
     </select>
 
+    <select id="searchBook" resultType="books" parameterType="String">
+        SELECT * FROM BOOKS WHERE BOOKNAME LIKE #{search} OR DETAIL LIKE #{search};
+    </select>
 </mapper>

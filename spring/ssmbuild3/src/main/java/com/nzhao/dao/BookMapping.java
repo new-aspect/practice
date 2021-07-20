@@ -22,4 +22,6 @@ public interface BookMapping {
 
     // 查询全部的书
     List<Books> queryAllBook();
+
+    List<Books> searchBook(String search);
 }
