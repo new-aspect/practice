@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  引入Jquery的cdn  -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        function a(){
+            $.ajax({
+                url: "t2",
+                type: 'get',
+                data: {"name": $('#username').val()},
+                success: function (data){
+                    alert(data);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<!-- 失去焦点的时候，发送AJAX请求到后台，如果失去焦点的内容与后台的内容相同，返回true，不相同返回false -->
+<!-- input标签中，onblur是指失去焦点后调用的方法 -->
+<input type="text" id="username" onblur="a();">
+</body>
+</html>

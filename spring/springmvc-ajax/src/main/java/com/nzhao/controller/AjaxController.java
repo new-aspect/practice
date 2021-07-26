@@ -17,4 +17,12 @@ public class AjaxController {
         return "success";
     }
 
+    @RequestMapping("/t2")
+    public String test2(String name){
+        if("nzhao".equals(name)){
+            return "success";
+        }
+        return "false";
+    }
+
 }
