@@ -7,4 +7,10 @@
     <select id="getUserList" resultType="com.nzhao.pojo.User">
     SELECT * FROM USER;
   </select>
+
+    <insert id="addUser" parameterType="user">
+        -- 增加
+        INSERT INTO USER(ID, USERNAME, PASSWORD)
+        VALUES (#{id}, #{username},#{password});
+    </insert>
 </mapper>

@@ -15,4 +15,14 @@ public class UserDaoTest {
         List<User> userList = userDao.getUserList();
         System.out.println(userList);
     }
+
+    @Test
+    public void addUserTest(){
+        UserDao mapper = MybatisUtil.getSeqSession().getMapper(UserDao.class);
+        User user = new User();
+        user.setId(4);
+        user.setUsername("xiaofei");
+        user.setPassword("123456");
+        mapper.addUser(user);
+    }
 }
